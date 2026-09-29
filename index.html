@@ -1,2454 +1,306 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nailson Xavier — UX/UI & Product Designer</title>
-  <meta name="description" content="Portfólio de Nailson Xavier - UX/UI & Product Designer com base em Sistemas para Internet, Growth e Product Management. Interfaces limpas, validação de hipóteses e impacto nos negócios.">
-  <meta name="author" content="Nailson Xavier">
-  <meta name="keywords" content="UX Designer, UI Designer, Product Designer, Growth, CRO, Testes AB, Recife, Nailson Xavier, Sistemas para Internet">
-
-  <!-- Open Graph / Meta Compartilhamento -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Nailson Xavier — UX/UI & Product Designer">
-  <meta property="og:description" content="Conectando design centrado no usuário, dados e impacto nos negócios. Conheça meus projetos, trajetórias e habilidades.">
-  <meta property="og:locale" content="pt_BR">
-
-  <!-- Fontes Google: Plus Jakarta Sans & Inter -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    /* ==========================================================================
-       CSS Variables & Design Tokens (Estilo Escandinavo / Suíço Minimalista)
-       ========================================================================== */
-    :root {
-      --bg-primary: #FAFAFA;
-      --bg-secondary: #FFFFFF;
-      --bg-surface: #F1F3F5;
-      --bg-surface-hover: #E9ECEF;
-      
-      --border-subtle: #E9ECEF;
-      --border-strong: #E2E8F0;
-      
-      --text-primary: #111827;
-      --text-secondary: #4B5563;
-      --text-muted: #6B7280;
-      --text-inverse: #FFFFFF;
-      
-      --accent-dark: #0F172A;
-      --accent-dark-hover: #1E293B;
-      --accent-blue: #2563EB;
-      --accent-blue-hover: #1D4ED8;
-      --accent-emerald: #059669;
-      --accent-emerald-light: #ECFDF5;
-      
-      --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      
-      --container-max: 1200px;
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 16px;
-      --radius-xl: 24px;
-      --radius-full: 9999px;
-      
-      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-      --shadow-md: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
-      --shadow-lg: 0 20px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
-      
-      --transition-fast: 150ms ease;
-      --transition-normal: 250ms cubic-bezier(0.16, 1, 0.3, 1);
-      --transition-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    /* Reset & Base */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    body {
-      background-color: var(--bg-primary);
-      color: var(--text-secondary);
-      font-family: var(--font-body);
-      line-height: 1.65;
-      overflow-x: hidden;
-      min-height: 100vh;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      color: var(--text-primary);
-      font-family: var(--font-display);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-    }
-
-    p {
-      margin-bottom: 1rem;
-    }
-
-    p:last-child {
-      margin-bottom: 0;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-      transition: color var(--transition-fast);
-    }
-
-    ul, ol {
-      list-style: none;
-    }
-
-    img, svg {
-      display: block;
-      max-width: 100%;
-    }
-
-    /* Container */
-    .container {
-      width: 100%;
-      max-width: var(--container-max);
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
-
-    @media (min-width: 768px) {
-      .container {
-        padding-left: 2rem;
-        padding-right: 2rem;
-      }
-    }
-
-    /* Section Spacing */
-    .section {
-      padding-top: 5rem;
-      padding-bottom: 5rem;
-      position: relative;
-    }
-
-    @media (min-width: 1024px) {
-      .section {
-        padding-top: 6.5rem;
-        padding-bottom: 6.5rem;
-      }
-    }
-
-    .section-header {
-      margin-bottom: 3.5rem;
-      max-width: 680px;
-    }
-
-    .section-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent-blue);
-      margin-bottom: 0.75rem;
-    }
-
-    .section-title {
-      font-size: clamp(1.85rem, 3.5vw, 2.5rem);
-      font-weight: 700;
-      margin-bottom: 0.875rem;
-    }
-
-    .section-subtitle {
-      font-size: 1.0625rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-    }
-
-    /* ==========================================================================
-       Header & Navigation
-       ========================================================================== */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.82);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border-subtle);
-      transition: all var(--transition-normal);
-    }
-
-    .site-header.scrolled {
-      background: rgba(255, 255, 255, 0.94);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-    }
-
-    .nav-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 4.5rem;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-family: var(--font-display);
-      font-size: 1.125rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      letter-spacing: -0.01em;
-    }
-
-    .logo-badge {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      border-radius: var(--radius-full);
-      background-color: var(--accent-dark);
-    }
-
-    .logo-role {
-      font-size: 0.8125rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      padding-left: 0.75rem;
-      border-left: 1px solid var(--border-subtle);
-      display: none;
-    }
-
-    @media (min-width: 640px) {
-      .logo-role {
-        display: inline-block;
-      }
-    }
-
-    .nav-menu {
-      display: none;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    @media (min-width: 860px) {
-      .nav-menu {
-        display: flex;
-      }
-    }
-
-    .nav-link {
-      font-size: 0.9375rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      position: relative;
-      padding: 0.5rem 0;
-      transition: color var(--transition-fast);
-    }
-
-    .nav-link:hover, .nav-link.active {
-      color: var(--text-primary);
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0%;
-      height: 2px;
-      background-color: var(--accent-dark);
-      transition: width var(--transition-normal);
-      border-radius: 2px;
-    }
-
-    .nav-link:hover::after, .nav-link.active::after {
-      width: 100%;
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 0.625rem 1.25rem;
-      font-size: 0.875rem;
-      font-weight: 600;
-      border-radius: var(--radius-md);
-      transition: all var(--transition-normal);
-      cursor: pointer;
-      border: 1px solid transparent;
-      line-height: 1.25;
-      white-space: nowrap;
-    }
-
-    .btn-primary {
-      background-color: var(--accent-dark);
-      color: var(--text-inverse);
-      box-shadow: 0 2px 4px rgba(15, 23, 42, 0.12);
-    }
-
-    .btn-primary:hover {
-      background-color: var(--accent-dark-hover);
-      transform: translateY(-1px);
-      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
-      color: var(--text-inverse);
-    }
-
-    .btn-secondary {
-      background-color: var(--bg-secondary);
-      color: var(--text-primary);
-      border-color: var(--border-strong);
-    }
-
-    .btn-secondary:hover {
-      background-color: var(--bg-surface);
-      border-color: #cbd5e1;
-      transform: translateY(-1px);
-    }
-
-    .btn-ghost {
-      background-color: transparent;
-      color: var(--text-secondary);
-      border-color: transparent;
-    }
-
-    .btn-ghost:hover {
-      background-color: var(--bg-surface);
-      color: var(--text-primary);
-    }
-
-    .btn-sm {
-      padding: 0.45rem 0.875rem;
-      font-size: 0.8125rem;
-    }
-
-    .btn-lg {
-      padding: 0.875rem 1.75rem;
-      font-size: 1rem;
-      border-radius: var(--radius-lg);
-    }
-
-    /* Mobile Menu Toggle */
-    .mobile-menu-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: var(--radius-md);
-      border: 1px solid var(--border-subtle);
-      background-color: var(--bg-secondary);
-      color: var(--text-primary);
-      cursor: pointer;
-    }
-
-    @media (min-width: 860px) {
-      .mobile-menu-btn {
-        display: none;
-      }
-    }
-
-    /* Mobile Drawer */
-    .mobile-nav {
-      position: fixed;
-      top: 4.5rem;
-      left: 0;
-      width: 100%;
-      background: var(--bg-secondary);
-      border-bottom: 1px solid var(--border-strong);
-      padding: 1.5rem;
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-100%);
-      opacity: 0;
-      visibility: hidden;
-      transition: all var(--transition-slow);
-      z-index: 99;
-    }
-
-    .mobile-nav.open {
-      transform: translateY(0);
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .mobile-nav-links {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .mobile-nav-links a {
-      font-size: 1.0625rem;
-      font-weight: 500;
-      color: var(--text-primary);
-      padding: 0.5rem 0;
-    }
-
-    /* ==========================================================================
-       Hero Section — Split Layout com Imagem
-       ========================================================================== */
-    .hero-section {
-      padding-top: 3.5rem;
-      padding-bottom: 5rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    @media (min-width: 1024px) {
-      .hero-section {
-        padding-top: 5rem;
-        padding-bottom: 6.5rem;
-      }
-    }
-
-    .hero-split {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    @media (min-width: 900px) {
-      .hero-split {
-        grid-template-columns: 1fr 0.8fr;
-        gap: 4.5rem;
-      }
-    }
-
-    .hero-text-col {
-      order: 2;
-    }
-
-    @media (min-width: 900px) {
-      .hero-text-col {
-        order: 1;
-      }
-      .hero-image-col {
-        order: 2;
-      }
-    }
-
-    .hero-image-col {
-      order: 1;
-      display: flex;
-      justify-content: center;
-    }
-
-    .hero-portrait-wrap {
-      position: relative;
-      width: 280px;
-      height: 340px;
-    }
-
-    @media (min-width: 640px) {
-      .hero-portrait-wrap {
-        width: 340px;
-        height: 420px;
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .hero-portrait-wrap {
-        width: 380px;
-        height: 460px;
-      }
-    }
-
-    .hero-portrait-wrap::before {
-      content: '';
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      right: -12px;
-      bottom: -12px;
-      border-radius: var(--radius-xl);
-      border: 2px solid var(--border-subtle);
-      z-index: 0;
-      transition: all var(--transition-normal);
-    }
-
-    .hero-portrait-wrap:hover::before {
-      top: 8px;
-      left: 8px;
-      right: -8px;
-      bottom: -8px;
-      border-color: var(--accent-blue);
-    }
-
-    .hero-portrait-wrap::after {
-      content: '';
-      position: absolute;
-      top: -30px;
-      right: -30px;
-      width: 100px;
-      height: 100px;
-      background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .hero-portrait {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      z-index: 1;
-      background: linear-gradient(145deg, #E2E8F0 0%, #CBD5E1 50%, #94A3B8 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: var(--shadow-lg);
-      transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-    }
-
-    .hero-portrait-wrap:hover .hero-portrait {
-      transform: translateY(-4px);
-      box-shadow: 0 25px 50px -10px rgba(15, 23, 42, 0.15);
-    }
-
-    .hero-portrait img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* Avatar placeholder com iniciais (substitua por <img> quando tiver a foto) */
-    .avatar-initials {
-      font-family: var(--font-display);
-      font-size: 5rem;
-      font-weight: 800;
-      color: rgba(255, 255, 255, 0.7);
-      letter-spacing: 0.05em;
-      user-select: none;
-    }
-
-    .hero-greeting {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--accent-blue);
-      margin-bottom: 0.625rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background-color: var(--accent-emerald-light);
-      border: 1px solid rgba(5, 150, 105, 0.2);
-      color: #065f46;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      padding: 0.35rem 0.95rem;
-      border-radius: var(--radius-full);
-      margin-bottom: 1.25rem;
-    }
-
-    .status-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background-color: var(--accent-emerald);
-      position: relative;
-    }
-
-    .status-dot::after {
-      content: '';
-      position: absolute;
-      top: -2px;
-      left: -2px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background-color: var(--accent-emerald);
-      opacity: 0.4;
-      animation: pulse 2s infinite ease-out;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(0.9); opacity: 0.8; }
-      50% { transform: scale(1.6); opacity: 0; }
-      100% { transform: scale(0.9); opacity: 0; }
-    }
-
-    .hero-title {
-      font-size: clamp(2.25rem, 4.8vw, 3.25rem);
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-      color: var(--text-primary);
-      margin-bottom: 1.25rem;
-    }
-
-    .hero-title .hero-accent {
-      background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-emerald) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-bio {
-      font-size: 1.0625rem;
-      line-height: 1.7;
-      color: var(--text-secondary);
-      margin-bottom: 1.75rem;
-    }
-
-    .hero-bio strong {
-      color: var(--text-primary);
-      font-weight: 600;
-    }
-
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      align-items: center;
-      margin-bottom: 2rem;
-    }
-
-    .hero-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.8125rem;
-      font-weight: 500;
-      color: var(--text-primary);
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      padding: 0.3rem 0.75rem;
-      border-radius: var(--radius-full);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 3rem;
-    }
-
-    /* Hero Metrics Bar */
-    .hero-metrics {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      padding-top: 2.5rem;
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    @media (min-width: 640px) {
-      .hero-metrics {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .metric-item {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .metric-value {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      letter-spacing: -0.02em;
-    }
-
-    .metric-label {
-      font-size: 0.8125rem;
-      color: var(--text-muted);
-      margin-top: 0.25rem;
-      line-height: 1.4;
-    }
-
-    /* ==========================================================================
-       About Section (Estilo Editorial Suíço)
-       ========================================================================== */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
-
-    @media (min-width: 900px) {
-      .about-grid {
-        grid-template-columns: 1.2fr 1fr;
-        gap: 4rem;
-      }
-    }
-
-    .editorial-lead {
-      font-size: 1.25rem;
-      line-height: 1.7;
-      color: var(--text-primary);
-      font-weight: 400;
-      margin-bottom: 1.5rem;
-    }
-
-    .editorial-body {
-      font-size: 1rem;
-      line-height: 1.75;
-      color: var(--text-secondary);
-    }
-
-    .pillars-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-    }
-
-    @media (min-width: 540px) {
-      .pillars-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    .pillar-card {
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      transition: all var(--transition-normal);
-    }
-
-    .pillar-card:hover {
-      border-color: var(--border-strong);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .pillar-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: var(--radius-md);
-      background-color: var(--bg-surface);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-primary);
-      margin-bottom: 1rem;
-    }
-
-    .pillar-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
-    }
-
-    .pillar-desc {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-      margin-bottom: 0;
-    }
-
-    /* ==========================================================================
-       Skills Section
-       ========================================================================== */
-    .skills-filter-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .filter-btn {
-      padding: 0.45rem 1rem;
-      font-size: 0.8125rem;
-      font-weight: 500;
-      border-radius: var(--radius-full);
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: all var(--transition-fast);
-    }
-
-    .filter-btn:hover {
-      border-color: var(--border-strong);
-      color: var(--text-primary);
-    }
-
-    .filter-btn.active {
-      background-color: var(--accent-dark);
-      border-color: var(--accent-dark);
-      color: var(--text-inverse);
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    @media (min-width: 640px) {
-      .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .skills-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .skill-card {
-      background-color: var(--bg-secondary);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-xl);
-      padding: 2rem;
-      transition: all var(--transition-normal);
-      display: flex;
-      flex-direction: column;
-      position: relative;
-    }
-
-    .skill-card:hover {
-      border-color: #cbd5e1;
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .skill-card-header {
-      display: flex;
-      align-items: center;
-      gap: 0.875rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .skill-icon-badge {
-      width: 44px;
-      height: 44px;
-      border-radius: var(--radius-md);
-      background-color: var(--bg-surface);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--accent-dark);
-    }
-
-    .skill-category-title {
-      font-size: 1.125rem;
-      font-weight: 600;
-    }
-
-    .skill-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: auto;
-    }
-
-    .chip {
-      background-color: #F1F5F9;
-      color: #334155;
-      font-size: 0.8125rem;
-      font-weight: 500;
-      padding: 0.35rem 0.75rem;
-      border-radius: var(--radius-full);
-      transition: all var(--transition-fast);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-    }
-
-    .chip:hover {
-      background-color: #E2E8F0;
-      color: var(--text-primary);
-    }
-
-    /* ==========================================================================
-       Timeline & Experience Section
-       ========================================================================== */
-    .timeline {
-      position: relative;
-      max-width: 880px;
-    }
-
-    .timeline::before {
-      content: '';
-      position: absolute;
-      top: 1.5rem;
-      bottom: 2rem;
-      left: 19px;
-      width: 2px;
-      background: var(--border-subtle);
-    }
-
-    .timeline-item {
-      position: relative;
-      padding-left: 3.5rem;
-      margin-bottom: 2.5rem;
-    }
-
-    .timeline-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .timeline-dot {
-      position: absolute;
-      top: 1.25rem;
-      left: 12px;
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background-color: var(--bg-secondary);
-      border: 3px solid var(--accent-dark);
-      z-index: 2;
-      transition: transform var(--transition-normal);
-    }
-
-    .timeline-item:first-child .timeline-dot {
-      border-color: var(--accent-blue);
-      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
-    }
-
-    .timeline-item:hover .timeline-dot {
-      transform: scale(1.25);
-    }
-
-    .timeline-card {
-      background-color: var(--bg-secondary);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-xl);
-      padding: 2rem;
-      transition: all var(--transition-normal);
-    }
-
-    .timeline-card:hover {
-      border-color: #cbd5e1;
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .timeline-header {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      margin-bottom: 1.25rem;
-    }
-
-    @media (min-width: 640px) {
-      .timeline-header {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: baseline;
-      }
-    }
-
-    .role-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--text-primary);
-    }
-
-    .company-name {
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--accent-blue);
-    }
-
-    .timeline-badge {
-      display: inline-flex;
-      align-items: center;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      background-color: var(--bg-surface);
-      padding: 0.25rem 0.75rem;
-      border-radius: var(--radius-full);
-      width: fit-content;
-    }
-
-    .timeline-tasks {
-      display: flex;
-      flex-direction: column;
-      gap: 0.625rem;
-    }
-
-    .timeline-task {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      font-size: 0.9375rem;
-      color: var(--text-secondary);
-      line-height: 1.55;
-    }
-
-    .task-bullet {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: var(--text-muted);
-      margin-top: 0.55rem;
-      flex-shrink: 0;
-    }
-
-    /* ==========================================================================
-       Projects & Extensões Section
-       ========================================================================== */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.75rem;
-    }
-
-    @media (min-width: 768px) {
-      .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    .project-card {
-      background-color: var(--bg-secondary);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-xl);
-      padding: 2.25rem;
-      transition: all var(--transition-normal);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .project-card:hover {
-      border-color: #cbd5e1;
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .project-tag {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--accent-blue);
-      margin-bottom: 0.75rem;
-    }
-
-    .project-title {
-      font-size: 1.35rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-    }
-
-    .project-desc {
-      font-size: 0.9375rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-
-    .partner-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: auto;
-      padding-top: 1.25rem;
-      border-top: 1px solid var(--border-subtle);
-    }
-
-    .partner-label {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      width: 100%;
-      font-weight: 500;
-      margin-bottom: 0.25rem;
-    }
-
-    /* ==========================================================================
-       Education & Certifications Section
-       ========================================================================== */
-    .edu-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-    }
-
-    @media (min-width: 900px) {
-      .edu-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    .card-boxed {
-      background-color: var(--bg-secondary);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-xl);
-      padding: 2.25rem;
-    }
-
-    .card-boxed-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .grad-item {
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--border-subtle);
-      margin-bottom: 1.5rem;
-    }
-
-    .grad-title {
-      font-size: 1.125rem;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    .grad-inst {
-      font-size: 0.9375rem;
-      color: var(--accent-blue);
-      font-weight: 500;
-      margin-top: 0.15rem;
-    }
-
-    .grad-meta {
-      font-size: 0.8125rem;
-      color: var(--text-muted);
-      margin-top: 0.25rem;
-    }
-
-    .cert-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    .cert-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.75rem 1rem;
-      background-color: var(--bg-primary);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      transition: background-color var(--transition-fast);
-    }
-
-    .cert-item:hover {
-      background-color: var(--bg-surface);
-    }
-
-    .cert-name {
-      font-size: 0.9375rem;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    .cert-org {
-      font-size: 0.8125rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    .lang-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.75rem 0;
-      border-bottom: 1px solid var(--border-subtle);
-    }
-
-    .lang-item:last-child {
-      border-bottom: none;
-    }
-
-    .lang-name {
-      font-weight: 600;
-      font-size: 0.9375rem;
-      color: var(--text-primary);
-    }
-
-    .lang-level {
-      font-size: 0.8125rem;
-      color: var(--text-muted);
-      background-color: var(--bg-surface);
-      padding: 0.2rem 0.65rem;
-      border-radius: var(--radius-full);
-    }
-
-    /* ==========================================================================
-       Contact & Footer Section
-       ========================================================================== */
-    .contact-card {
-      background: linear-gradient(145deg, #111827 0%, #0F172A 100%);
-      border-radius: var(--radius-xl);
-      padding: 3rem 2rem;
-      color: var(--text-inverse);
-      position: relative;
-      overflow: hidden;
-    }
-
-    @media (min-width: 768px) {
-      .contact-card {
-        padding: 4.5rem;
-      }
-    }
-
-    .contact-card::after {
-      content: '';
-      position: absolute;
-      top: -40%;
-      right: -20%;
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(37, 99, 235, 0) 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .contact-header {
-      max-width: 640px;
-      margin-bottom: 2.75rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .contact-header h2 {
-      color: #FFFFFF;
-      font-size: clamp(2rem, 4vw, 2.75rem);
-      margin-bottom: 1rem;
-    }
-
-    .contact-header p {
-      color: #94A3B8;
-      font-size: 1.125rem;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-      margin-bottom: 3rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    @media (min-width: 640px) {
-      .contact-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 1024px) {
-      .contact-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .contact-method {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      transition: all var(--transition-normal);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .contact-method:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-2px);
-    }
-
-    .method-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #94A3B8;
-      margin-bottom: 0.5rem;
-    }
-
-    .method-val {
-      font-size: 0.9375rem;
-      font-weight: 600;
-      color: #FFFFFF;
-      word-break: break-all;
-    }
-
-    .method-action {
-      margin-top: 1rem;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-size: 0.8125rem;
-      color: #60A5FA;
-      font-weight: 500;
-    }
-
-    .method-action:hover {
-      color: #93C5FD;
-    }
-
-    /* Footer Bottom */
-    .site-footer {
-      padding: 3rem 0;
-      border-top: 1px solid var(--border-subtle);
-      margin-top: 4rem;
-      font-size: 0.875rem;
-      color: var(--text-muted);
-    }
-
-    .footer-content {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    @media (min-width: 640px) {
-      .footer-content {
-        flex-direction: row;
-      }
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 1.5rem;
-    }
-
-    .footer-links a:hover {
-      color: var(--text-primary);
-    }
-
-    /* Toast Notification */
-    .toast {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      background-color: var(--accent-dark);
-      color: #FFFFFF;
-      padding: 0.875rem 1.25rem;
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-lg);
-      font-size: 0.875rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 0.625rem;
-      opacity: 0;
-      transform: translateY(1rem);
-      pointer-events: none;
-      transition: all var(--transition-normal);
-      z-index: 1000;
-    }
-
-    .toast.show {
-      opacity: 1;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-
-    /* Back to Top Button */
-    .back-to-top {
-      position: fixed;
-      bottom: 2rem;
-      left: 2rem;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-strong);
-      color: var(--text-primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: var(--shadow-md);
-      cursor: pointer;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(10px);
-      transition: all var(--transition-normal);
-      z-index: 90;
-    }
-
-    .back-to-top.visible {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .back-to-top:hover {
-      background: var(--bg-surface);
-      transform: translateY(-2px);
-    }
-
-    /* CV Modal */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.6);
-      backdrop-filter: blur(4px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 200;
-      padding: 1.5rem;
-      opacity: 0;
-      visibility: hidden;
-      transition: all var(--transition-normal);
-    }
-
-    .modal-overlay.open {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .modal-card {
-      background: var(--bg-secondary);
-      border-radius: var(--radius-xl);
-      max-width: 600px;
-      width: 100%;
-      padding: 2.25rem;
-      box-shadow: var(--shadow-lg);
-      transform: scale(0.95);
-      transition: transform var(--transition-normal);
-      max-height: 90vh;
-      overflow-y: auto;
-    }
-
-    .modal-overlay.open .modal-card {
-      transform: scale(1);
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 1.5rem;
-    }
-
-    .modal-close {
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--text-muted);
-      padding: 0.25rem;
-    }
-
-    .modal-close:hover {
-      color: var(--text-primary);
-    }
-
-    /* Print Styles */
-    @media print {
-      .site-header, .hero-actions, .mobile-nav, .back-to-top, .toast, .skills-filter-nav {
-        display: none !important;
-      }
-      body {
-        background: #FFF;
-        color: #000;
-      }
-      .container {
-        max-width: 100%;
-        padding: 0;
-      }
-      .section {
-        padding: 1.5rem 0;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <!-- ==========================================================================
-       Seção 1: Header / Navbar
-       ========================================================================== -->
-  <header class="site-header" id="header">
-    <div class="container">
-      <div class="nav-wrapper">
-        <a href="#hero" class="logo" id="brand-logo" aria-label="Nailson Xavier Home">
-          <span class="logo-badge"></span>
-          <span>Nailson Xavier</span>
-          <span class="logo-role">UX/UI & Product</span>
-        </a>
-
-        <!-- Desktop Navigation -->
-        <nav class="nav-menu" id="desktop-nav" aria-label="Navegação Principal">
-          <a href="#sobre" class="nav-link">Sobre</a>
-          <a href="#habilidades" class="nav-link">Habilidades</a>
-          <a href="#experiencia" class="nav-link">Experiência</a>
-          <a href="#projetos" class="nav-link">Projetos</a>
-          <a href="#formacao" class="nav-link">Formação</a>
-          <a href="#contato" class="nav-link">Contato</a>
-        </nav>
-
-        <div class="nav-actions">
-          <a href="https://wa.me/5581973385349" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" id="btn-header-cta">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-            </svg>
-            <span>Fale Comigo</span>
-          </a>
-
-          <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Abrir Menu" aria-expanded="false">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Mobile Drawer Menu -->
-  <div class="mobile-nav" id="mobile-nav">
-    <div class="mobile-nav-links">
-      <a href="#sobre" class="mobile-nav-link">Sobre</a>
-      <a href="#habilidades" class="mobile-nav-link">Habilidades</a>
-      <a href="#experiencia" class="mobile-nav-link">Experiência</a>
-      <a href="#projetos" class="mobile-nav-link">Projetos & Comunidade</a>
-      <a href="#formacao" class="mobile-nav-link">Formação & Certificações</a>
-      <a href="#contato" class="mobile-nav-link">Contato</a>
-    </div>
-    <div style="display: flex; gap: 0.75rem; flex-direction: column;">
-      <a href="https://wa.me/5581973385349" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%;">
-        WhatsApp Direto
-      </a>
-      <a href="mailto:nailson.xavier@outlook.com" class="btn btn-secondary" style="width: 100%;">
-        Enviar E-mail
-      </a>
-    </div>
-  </div>
-
-  <main>
-    <!-- ==========================================================================
-         Seção 1: Hero — Apresentação Pessoal com Imagem
-         ========================================================================== -->
-    <section class="hero-section" id="hero">
-      <div class="container">
-        <div class="hero-split">
-
-          <!-- Coluna de Texto (Sobre Mim Integrado) -->
-          <div class="hero-text-col">
-
-            <!-- Saudação -->
-            <div class="hero-greeting">
-              <span>👋</span>
-              <span>Olá, prazer! Eu sou</span>
-            </div>
-
-            <!-- Nome & Tagline -->
-            <h1 class="hero-title">
-              Nailson Xavier<br>
-              <span class="hero-accent">UX/UI & Product Designer</span>
-            </h1>
-
-            <!-- Bio Pessoal -->
-            <p class="hero-bio">
-              Sou formado em <strong>Sistemas para Internet pela UNICAP</strong> e venho aprofundando minha visão estratégica com formações em <strong>Product Management</strong> e <strong>Design de Produtos Digitais</strong> (EBAC e CESAR School). Atuo na intersecção entre a resolução de dores do usuário, experimentação com testes A/B e viabilidade técnica — colaborando com times multidisciplinares e internacionais.
-            </p>
-
-            <!-- Tags de Contexto Rápido -->
-            <div class="hero-tags">
-              <span class="hero-tag">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                Recife - PE, Brasil
-              </span>
-              <span class="hero-tag">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                Remoto / Híbrido
-              </span>
-            </div>
-
-            <!-- Status Pill -->
-            <div class="status-badge" id="status-pill">
-              <span class="status-dot"></span>
-              <span>Disponível para novos desafios em UX/UI & Produto</span>
-            </div>
-
-            <!-- Botões de Ação -->
-            <div class="hero-actions">
-              <a href="#experiencia" class="btn btn-primary btn-lg" id="btn-hero-projects">
-                <span>Ver Experiências</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="7" y1="17" x2="17" y2="7"></line>
-                  <polyline points="7 7 17 7 17 17"></polyline>
-                </svg>
-              </a>
-              <button class="btn btn-secondary btn-lg" id="btn-open-cv-modal">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                  <polyline points="14 2 14 8 20 8"></polyline>
-                  <line x1="16" y1="13" x2="8" y2="13"></line>
-                  <line x1="16" y1="17" x2="8" y2="17"></line>
-                </svg>
-                <span>Resumo / CV</span>
-              </button>
-              <a href="#contato" class="btn btn-ghost btn-lg">
-                <span>Fale Comigo</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- Coluna da Imagem / Portrait -->
-          <div class="hero-image-col">
-            <div class="hero-portrait-wrap">
-              <div class="hero-portrait">
-                <img src="foto-nailson.jpg" alt="Foto de Nailson Xavier — UX/UI & Product Designer">
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Métricas e Credenciais Rápidas -->
-        <div class="hero-metrics">
-          <div class="metric-item">
-            <span class="metric-value">3+ anos</span>
-            <span class="metric-label">de vivência em tecnologia & marketing</span>
-          </div>
-          <div class="metric-item">
-            <span class="metric-value">UNICAP</span>
-            <span class="metric-label">Graduado em Sistemas para Internet</span>
-          </div>
-          <div class="metric-item">
-            <span class="metric-value">Data & CRO</span>
-            <span class="metric-label">Testes A/B & usabilidade analítica</span>
-          </div>
-          <div class="metric-item">
-            <span class="metric-value">Global</span>
-            <span class="metric-label">Comunicação e alinhamento em inglês</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         Seção 3: Sobre Mim
-         ========================================================================== -->
-    <section class="section" id="sobre" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-eyebrow">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            Perfil Estratégico
-          </span>
-          <h2 class="section-title">Sobre Mim</h2>
-        </div>
-
-        <div class="about-grid">
-          <div class="about-text-column">
-            <p class="editorial-lead">
-              Sou formado em <strong>Sistemas para Internet pela UNICAP</strong> e venho aprofundando minha visão estratégica com formações em <strong>Product Management e Design de Produtos Digitais</strong> (pela EBAC e CESAR School).
-            </p>
-            <p class="editorial-body">
-              Atuo na intersecção entre a <strong>resolução de dores reais do usuário</strong>, <strong>experimentação com testes A/B</strong> e <strong>viabilidade técnica</strong>, colaborando estreitamente com times multidisciplinares e internacionais. Minha bagagem em tecnologia permite dialogar perfeitamente com equipes de engenharia de software, enquanto o foco em CRO e Growth assegura que cada decisão de design gere ponte mensurável com os objetivos do negócio.
-            </p>
-            <div style="margin-top: 2rem; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
-              <span style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--text-primary); font-weight: 500;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                Recife - PE, Brasil
-              </span>
-              <span style="color: var(--border-strong);">•</span>
-              <span style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: var(--text-primary); font-weight: 500;">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                Disponível Remoto / Híbrido
-              </span>
-            </div>
-          </div>
-
-          <div class="pillars-grid">
-            <div class="pillar-card">
-              <div class="pillar-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 20h9"></path>
-                  <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
-                </svg>
-              </div>
-              <h3 class="pillar-title">Design Centrado no Usuário</h3>
-              <p class="pillar-desc">Criação de fluxos sem fricção, wireframes de alta fidelidade e design systems consistentes no Figma.</p>
-            </div>
-
-            <div class="pillar-card">
-              <div class="pillar-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="18" y1="20" x2="18" y2="10"></line>
-                  <line x1="12" y1="20" x2="12" y2="4"></line>
-                  <line x1="6" y1="20" x2="6" y2="14"></line>
-                </svg>
-              </div>
-              <h3 class="pillar-title">Orientado a Dados & CRO</h3>
-              <p class="pillar-desc">Otimização de taxas de conversão (CTR, retenção, ativação) por meio de testes A/B e ferramentas como Clarity e Hotjar.</p>
-            </div>
-
-            <div class="pillar-card">
-              <div class="pillar-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="16 18 22 12 16 6"></polyline>
-                  <polyline points="8 6 2 12 8 18"></polyline>
-                </svg>
-              </div>
-              <h3 class="pillar-title">Fundação Técnica</h3>
-              <p class="pillar-desc">Conhecimento real de HTML, CSS, WordPress e arquitetura web, facilitando a ponte produtiva com times de dev.</p>
-            </div>
-
-            <div class="pillar-card">
-              <div class="pillar-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="9" cy="7" r="4"></circle>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                </svg>
-              </div>
-              <h3 class="pillar-title">Alinhamento Global</h3>
-              <p class="pillar-desc">Experiência direta com stakeholders e lideranças globais na Itália em squads ágeis com comunicação em inglês.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         Seção 4: Habilidades
-         ========================================================================== -->
-    <section class="section" id="habilidades">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-eyebrow">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-            Competências Técnicas
-          </span>
-          <h2 class="section-title">Habilidades & Ferramental</h2>
-          <p class="section-subtitle">
-            Combinação estratégica de design de produto, métodos analíticos, engenharia de software e inteligência artificial aplicada.
-          </p>
-        </div>
-
-        <!-- Botões de Filtro -->
-        <div class="skills-filter-nav" role="tablist">
-          <button class="filter-btn active" data-filter="all">Todas as Áreas</button>
-          <button class="filter-btn" data-filter="design">Design & UX/UI</button>
-          <button class="filter-btn" data-filter="cro">Pesquisa & Dados (CRO)</button>
-          <button class="filter-btn" data-filter="tech">Tecnologia & Web</button>
-          <button class="filter-btn" data-filter="business">Negócios & Gestão</button>
-          <button class="filter-btn" data-filter="ai">Inteligência Artificial</button>
-        </div>
-
-        <div class="skills-grid" id="skills-container">
-          <!-- Card 1: Design & UX/UI -->
-          <div class="skill-card" data-category="design">
-            <div class="skill-card-header">
-              <div class="skill-icon-badge">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path>
-                  <path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path>
-                  <path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path>
-                  <path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path>
-                  <path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path>
-                </svg>
-              </div>
-              <h3 class="skill-category-title">Design & UX/UI</h3>
-            </div>
-            <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.25rem;">
-              Concepção visual, arquitetura da informação e sistemas de design escaláveis.
-            </p>
-            <div class="skill-chips">
-              <span class="chip">Figma</span>
-              <span class="chip">FigJam</span>
-              <span class="chip">Prototipação Rápida</span>
-              <span class="chip">Design Systems</span>
-              <span class="chip">Wireframes</span>
-              <span class="chip">Arquitetura de Informação</span>
-              <span class="chip">Adobe Suite</span>
-            </div>
-          </div>
-
-          <!-- Card 2: Pesquisa, CRO & Dados -->
-          <div class="skill-card" data-category="cro">
-            <div class="skill-card-header">
-              <div class="skill-icon-badge">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M3 3v18h18"></path>
-                  <path d="m19 9-5 5-4-4-3 3"></path>
-                </svg>
-              </div>
-              <h3 class="skill-category-title">Pesquisa, CRO & Dados</h3>
-            </div>
-            <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.25rem;">
-              Validação analítica de comportamento, mapas de calor e funis de conversão.
-            </p>
-            <div class="skill-chips">
-              <span class="chip">Testes A/B</span>
-              <span class="chip">Microsoft Clarity</span>
-              <span class="chip">Hotjar</span>
-              <span class="chip">Google Analytics</span>
-              <span class="chip">Typeform</span>
-              <span class="chip">Métricas de Conversão (CTR)</span>
-              <span class="chip">Taxa de Ativação</span>
-              <span class="chip">Churn</span>
-            </div>
-          </div>
-
-          <!-- Card 3: Tecnologia & Web -->
-          <div class="skill-card" data-category="tech">
-            <div class="skill-card-header">
-              <div class="skill-icon-badge">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="16 18 22 12 16 6"></polyline>
-                  <polyline points="8 6 2 12 8 18"></polyline>
-                </svg>
-              </div>
-              <h3 class="skill-category-title">Tecnologia & Web</h3>
-            </div>
-            <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.25rem;">
-              Base acadêmica em desenvolvimento front-end e arquitetura para a internet.
-            </p>
-            <div class="skill-chips">
-              <span class="chip">HTML5</span>
-              <span class="chip">CSS3</span>
-              <span class="chip">WordPress</span>
-              <span class="chip">Python</span>
-              <span class="chip">Engenharia de Software</span>
-              <span class="chip">Responsividade</span>
-            </div>
-          </div>
-
-          <!-- Card 4: Negócios & Metodologias -->
-          <div class="skill-card" data-category="business">
-            <div class="skill-card-header">
-              <div class="skill-icon-badge">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                </svg>
-              </div>
-              <h3 class="skill-category-title">Negócios & Metodologias</h3>
-            </div>
-            <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.25rem;">
-              Gestão ágil, estratégia de produto e comunicação com stakeholders.
-            </p>
-            <div class="skill-chips">
-              <span class="chip">Scrum</span>
-              <span class="chip">Kanban</span>
-              <span class="chip">Jira</span>
-              <span class="chip">Notion</span>
-              <span class="chip">Alinhamento de Stakeholders</span>
-              <span class="chip">Estratégia de Growth</span>
-            </div>
-          </div>
-
-          <!-- Card 5: Inteligência Artificial -->
-          <div class="skill-card" data-category="ai">
-            <div class="skill-card-header">
-              <div class="skill-icon-badge">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 2a10 10 0 1 0 10 10H12V2z"></path>
-                  <path d="M12 12 2.1 12.05"></path>
-                  <path d="M12 12a10 10 0 0 1 8.8-5"></path>
-                  <circle cx="12" cy="12" r="2"></circle>
-                </svg>
-              </div>
-              <h3 class="skill-category-title">Inteligência Artificial</h3>
-            </div>
-            <p style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 1.25rem;">
-              Aceleração de fluxos de trabalho de UI/UX e automação de hipóteses com IA.
-            </p>
-            <div class="skill-chips">
-              <span class="chip">Prompt Engineering</span>
-              <span class="chip">ChatGPT</span>
-              <span class="chip">Claude</span>
-              <span class="chip">Figma AI</span>
-              <span class="chip">Fluxos com LLMs</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         Seção 5: Linha do Tempo Profissional
-         ========================================================================== -->
-    <section class="section" id="experiencia" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-eyebrow">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-            Carreira
-          </span>
-          <h2 class="section-title">Experiência Profissional</h2>
-          <p class="section-subtitle">
-            Trajetória com impacto prático em operações multinacionais, marcas consolidadas e franquias.
-          </p>
-        </div>
-
-        <div class="timeline">
-          <!-- Item 1: UMANA Brasil -->
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card">
-              <div class="timeline-header">
-                <div>
-                  <h3 class="role-title">Analista Growth Marketing - Junior</h3>
-                  <div class="company-name">UMANA Brasil (Multinacional Italiana)</div>
-                </div>
-                <div class="timeline-badge">Agosto 2026 – Atualmente</div>
-              </div>
-              <div class="timeline-tasks">
-                <div class="timeline-task">
-                  <span class="task-bullet"></span>
-                  <span>Estruturação dos canais e materiais institucionais para a operação brasileira da multinacional italiana.</span>
-                </div>
-                <div class="timeline-task">
-                  <span class="task-bullet"></span>
-                  <span>Alinhamento direto em inglês com a liderança e time global de marketing na Itália.</span>
-                </div>
-                <div class="timeline-task">
-                  <span class="task-bullet"></span>
-                  <span>Otimização de jornadas de navegação e landing pages com foco em usabilidade e redução de atrito.</span>
-                </div>
-                <div class="timeline-task">
-                  <span class="task-bullet"></span>
-                  <span>Execução de testes A/B e acompanhamento sistemático de métricas analíticas (CTR, conversões e retenção).</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Item 2: WR Formaturas -->
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card">
-              <div class="timeline-header">
-                <div>
-                  <h3 class="role-title">Marketing e Brand Designer</h3>
-                  <div class="company-name">WR Formaturas</div>
-                </div>
-                <div class="timeline-badge">Julho 2025 – Março 2026</div>
-              </div>
-              <div class="timeline-tasks">
-                <div class="timeline-task">
-                  <span class="task-bullet"></span>
-                  <span>Condução de projetos de comunicação, hierarquia visual e identidade de marca de ponta a ponta.</span>
-                </div>
-                <div class="timeline-task">
-                  <span class="task-bullet"></span>
-                  <span>Alinhamento de escopos, briefings e expectativas diretamente com clientes e parceiros estratégicos.</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Item 3: Franquia Ortoestética -->
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-card">
-              <div class="timeline-header">
-                <div>
-                  <h3 class="role-title">Assistente de Marketing & Estagiário</h3>
-                  <div class="company-name">Franquia Ortoestética</div>
-                </div>
-                <div class="timeline-badge">Novembro 2023 – Maio 2025</div>
-              </div>
-              <div class="timeline-tasks">
-                <div class="timeline-task">
-                  <span class="task-bullet"></span>
-                  <span>Execução de testes de campanhas e pesquisas aprofundadas de mercado e concorrência.</span>
-                </div>
-                <div class="timeline-task">
-                  <span class="task-bullet"></span>
-                  <span>Criação de interfaces promocionais, materiais institucionais e tratamento criterioso de ativos visuais.</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         Seção 6: Projetos, Extensões & Comunidade
-         ========================================================================== -->
-    <section class="section" id="projetos">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-eyebrow">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-            Iniciativas & Ecossistema
-          </span>
-          <h2 class="section-title">Projetos, Extensões & Comunidade</h2>
-          <p class="section-subtitle">
-            Atuação ativa no ecossistema de inovação, residências tecnológicas e mentoria de novos talentos.
-          </p>
-        </div>
-
-        <div class="projects-grid">
-          <!-- Card 1: Residência Tecnológica Porto Digital -->
-          <div class="project-card">
-            <div>
-              <span class="project-tag">Residência Tecnológica</span>
-              <h3 class="project-title">Porto Digital (Onboard / Embarque Digital)</h3>
-              <p class="project-desc">
-                Criação de soluções de tecnologia e produtos digitais aplicados a cenários reais de mercado, desenhados em imersão com gigantes do setor tecnológico.
-              </p>
-            </div>
-            <div class="partner-chips">
-              <span class="partner-label">Parceiros e Empresas Envolvidas:</span>
-              <span class="chip">Accenture</span>
-              <span class="chip">NTT Data</span>
-              <span class="chip">CMTech</span>
-              <span class="chip">Porto Digital</span>
-            </div>
-          </div>
-
-          <!-- Card 2: Palestrante & Mentor -->
-          <div class="project-card">
-            <div>
-              <span class="project-tag">Comunidade & Liderança</span>
-              <h3 class="project-title">Palestrante & Mentor de Talentos em TI</h3>
-              <p class="project-desc">
-                Mentoria prática para talentos ingressantes na área de tecnologia, além de condução de palestras e workshops sobre design de interfaces, sistemas para internet e transição profissional.
-              </p>
-            </div>
-            <div class="partner-chips">
-              <span class="partner-label">Eventos & Instituições de Destaque:</span>
-              <span class="chip">Rec'n'Play (Festival de Tecnologia)</span>
-              <span class="chip">Semana da Computação UNICAP</span>
-              <span class="chip">Mentorias Comunitárias</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         Seção 7: Educação & Certificações
-         ========================================================================== -->
-    <section class="section" id="formacao" style="background-color: var(--bg-secondary); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle);">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-eyebrow">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg>
-            Background Acadêmico
-          </span>
-          <h2 class="section-title">Educação & Certificações</h2>
-        </div>
-
-        <div class="edu-grid">
-          <!-- Coluna 1: Graduação & Idiomas -->
-          <div class="card-boxed">
-            <h3 class="card-boxed-title">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
-              Graduação
-            </h3>
-            <div class="grad-item">
-              <div class="grad-title">Tecnólogo em Sistemas para Internet</div>
-              <div class="grad-inst">Universidade Católica de Pernambuco (UNICAP)</div>
-              <div class="grad-meta">Concluído • 2022 – 2024</div>
-            </div>
-
-            <h3 class="card-boxed-title" style="margin-top: 2rem;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-              Idiomas
-            </h3>
-            <div>
-              <div class="lang-item">
-                <span class="lang-name">Português</span>
-                <span class="lang-level">Nativo</span>
-              </div>
-              <div class="lang-item">
-                <span class="lang-name">Inglês</span>
-                <span class="lang-level">Intermediário (Comunicação de Negócios)</span>
-              </div>
-              <div class="lang-item">
-                <span class="lang-name">Espanhol</span>
-                <span class="lang-level">Básico</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Coluna 2: Certificações de Especialização -->
-          <div class="card-boxed">
-            <h3 class="card-boxed-title">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
-              Certificações & Especializações
-            </h3>
-            <div class="cert-list">
-              <div class="cert-item">
-                <div>
-                  <div class="cert-name">Product Management</div>
-                  <div class="cert-org">EBAC — Escola Britânica de Artes Criativas</div>
-                </div>
-                <span class="chip" style="font-size: 0.75rem;">Certificado</span>
-              </div>
-
-              <div class="cert-item">
-                <div>
-                  <div class="cert-name">Digital Product Design</div>
-                  <div class="cert-org">EBAC — Escola Britânica de Artes Criativas</div>
-                </div>
-                <span class="chip" style="font-size: 0.75rem;">Certificado</span>
-              </div>
-
-              <div class="cert-item">
-                <div>
-                  <div class="cert-name">Design de Produtos Digitais & Design Orientado por Dados</div>
-                  <div class="cert-org">CESAR School</div>
-                </div>
-                <span class="chip" style="font-size: 0.75rem;">Certificado</span>
-              </div>
-
-              <div class="cert-item">
-                <div>
-                  <div class="cert-name">UX Design</div>
-                  <div class="cert-org">Alura</div>
-                </div>
-                <span class="chip" style="font-size: 0.75rem;">Certificado</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         Seção 8: Rodapé & Contato
-         ========================================================================== -->
-    <section class="section" id="contato">
-      <div class="container">
-        <div class="contact-card">
-          <div class="contact-header">
-            <span style="display: inline-block; font-size: 0.8125rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #60A5FA; margin-bottom: 0.75rem;">
-              Próximo Passo
-            </span>
-            <h2>Vamos construir algo incrível juntos?</h2>
-            <p>
-              Estou disponível para novas posições, projetos e consultorias estratégicas em UX/UI, Growth e Design de Produto.
-            </p>
-          </div>
-
-          <div class="contact-grid">
-            <!-- E-mail -->
-            <div class="contact-method">
-              <div>
-                <span class="method-label">E-mail Direto</span>
-                <div class="method-val">nailson.xavier@outlook.com</div>
-              </div>
-              <div style="display: flex; gap: 0.75rem; align-items: center; margin-top: 1rem;">
-                <a href="mailto:nailson.xavier@outlook.com" class="method-action">
-                  <span>Escrever</span>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-                </a>
-                <button id="copy-email-btn" style="background: none; border: none; cursor: pointer; color: #94A3B8; font-size: 0.8125rem; display: inline-flex; align-items: center; gap: 0.25rem;">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                  <span>Copiar</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- WhatsApp -->
-            <div class="contact-method">
-              <div>
-                <span class="method-label">WhatsApp</span>
-                <div class="method-val">(+55) 81 97338-5349</div>
-              </div>
-              <a href="https://wa.me/5581973385349" target="_blank" rel="noopener noreferrer" class="method-action">
-                <span>Conversar no WhatsApp</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-              </a>
-            </div>
-
-            <!-- LinkedIn -->
-            <div class="contact-method">
-              <div>
-                <span class="method-label">Rede Profissional</span>
-                <div class="method-val">LinkedIn</div>
-              </div>
-              <a href="https://www.linkedin.com/in/nailsonxavier" target="_blank" rel="noopener noreferrer" class="method-action">
-                <span>Conectar no LinkedIn</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-              </a>
-            </div>
-
-            <!-- Beacons Hub -->
-            <div class="contact-method">
-              <div>
-                <span class="method-label">Hub de Links</span>
-                <div class="method-val">Beacons / Portfólio</div>
-              </div>
-              <a href="https://beacons.ai/nailsonxavier" target="_blank" rel="noopener noreferrer" class="method-action">
-                <span>Acessar Links</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
-              </a>
-            </div>
-          </div>
-
-          <div style="border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; position: relative; z-index: 1;">
-            <div style="font-size: 0.875rem; color: #94A3B8;">
-              Localização: <strong>Recife - PE, Brasil</strong>
-            </div>
-            <a href="mailto:nailson.xavier@outlook.com?subject=Contato%20via%20Portfolio" class="btn btn-secondary btn-sm" style="color: #0F172A; background-color: #FFFFFF;">
-              Iniciar Conversa por E-mail
-            </a>
-          </div>
-        </div>
-
-        <!-- Footer Bottom -->
-        <footer class="site-footer">
-          <div class="footer-content">
-            <div>
-              © 2026 Nailson Xavier • UX/UI & Product Designer
-            </div>
-            <div class="footer-links">
-              <a href="#hero">Início</a>
-              <a href="#sobre">Sobre</a>
-              <a href="#experiencia">Experiência</a>
-              <a href="#habilidades">Habilidades</a>
-              <a href="#contato">Contato</a>
-            </div>
-          </div>
-        </footer>
-      </div>
-    </section>
-  </main>
-
-  <!-- Botão Flutuante Voltar ao Topo -->
-  <button class="back-to-top" id="back-to-top-btn" aria-label="Voltar ao início">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <polyline points="18 15 12 9 6 15"></polyline>
-    </svg>
-  </button>
-
-  <!-- Toast Notification -->
-  <div class="toast" id="toast-notification" role="status" aria-live="polite">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-    <span id="toast-message">E-mail copiado para a área de transferência!</span>
-  </div>
-
-  <!-- Modal Visualização de CV / Resumo Executivo -->
-  <div class="modal-overlay" id="cv-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal-card">
-      <div class="modal-header">
-        <h3 id="modal-title" style="font-size: 1.25rem;">Nailson Xavier — Resumo Executivo</h3>
-        <button class="modal-close" id="modal-close-btn" aria-label="Fechar Modal">&times;</button>
-      </div>
-      <div style="font-size: 0.9375rem; color: var(--text-secondary); line-height: 1.6;">
-        <p><strong>Cargo Atual:</strong> Analista Growth Marketing - Junior na UMANA Brasil</p>
-        <p><strong>Formação:</strong> Tecnólogo em Sistemas para Internet (UNICAP, 2022-2024)</p>
-        <p><strong>Especializações:</strong> Product Management (EBAC), Digital Product Design (EBAC), Design Orientado por Dados (CESAR School), UX Design (Alura).</p>
-        <p><strong>Contatos:</strong> nailson.xavier@outlook.com | (+55) 81 97338-5349</p>
-        <hr style="border: none; border-top: 1px solid var(--border-subtle); margin: 1.25rem 0;">
-        <p style="margin-bottom: 0;">Você pode imprimir este resumo ou salvar como PDF usando o botão abaixo:</p>
-      </div>
-      <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem; justify-content: flex-end;">
-        <button class="btn btn-secondary" id="btn-print-cv">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
-          <span>Imprimir / Salvar PDF</span>
-        </button>
-        <button class="btn btn-primary" id="btn-modal-close-action">Fechar</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ==========================================================================
-       JavaScript Integrado (Vanilla JS)
-       ========================================================================== -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // 1. Header scroll effect
-      const header = document.getElementById('header');
-      const backToTopBtn = document.getElementById('back-to-top-btn');
-
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 40) {
-          header.classList.add('scrolled');
-        } else {
-          header.classList.remove('scrolled');
-        }
-
-        if (window.scrollY > 400) {
-          backToTopBtn.classList.add('visible');
-        } else {
-          backToTopBtn.classList.remove('visible');
-        }
-      });
-
-      // 2. Mobile Menu Toggle
-      const mobileBtn = document.getElementById('mobile-menu-toggle');
-      const mobileNav = document.getElementById('mobile-nav');
-      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-
-      const toggleMenu = () => {
-        const isOpen = mobileNav.classList.toggle('open');
-        mobileBtn.setAttribute('aria-expanded', isOpen);
-        if (isOpen) {
-          document.body.style.overflow = 'hidden';
-        } else {
-          document.body.style.overflow = '';
-        }
-      };
-
-      mobileBtn.addEventListener('click', toggleMenu);
-
-      mobileNavLinks.forEach(link => {
-        link.addEventListener('click', () => {
-          mobileNav.classList.remove('open');
-          mobileBtn.setAttribute('aria-expanded', 'false');
-          document.body.style.overflow = '';
-        });
-      });
-
-      // 3. Back to top smooth scroll
-      backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-
-      // 4. Copiar E-mail com Toast
-      const copyBtn = document.getElementById('copy-email-btn');
-      const toast = document.getElementById('toast-notification');
-      const emailToCopy = 'nailson.xavier@outlook.com';
-
-      copyBtn.addEventListener('click', async () => {
-        try {
-          if (navigator.clipboard && navigator.clipboard.writeText) {
-            await navigator.clipboard.writeText(emailToCopy);
-          } else {
-            // Fallback para navegadores legados
-            const textarea = document.createElement('textarea');
-            textarea.value = emailToCopy;
-            textarea.style.position = 'fixed';
-            textarea.style.opacity = '0';
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-          }
-          showToast('E-mail copiado com sucesso!');
-        } catch (err) {
-          showToast('E-mail: nailson.xavier@outlook.com');
-        }
-      });
-
-      function showToast(message) {
-        document.getElementById('toast-message').textContent = message;
-        toast.classList.add('show');
-        setTimeout(() => {
-          toast.classList.remove('show');
-        }, 3200);
-      }
-
-      // 5. Filtro interativo de Habilidades
-      const filterBtns = document.querySelectorAll('.filter-btn');
-      const skillCards = document.querySelectorAll('.skill-card');
-
-      filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          filterBtns.forEach(b => b.classList.remove('active'));
-          btn.classList.add('active');
-
-          const filter = btn.getAttribute('data-filter');
-
-          skillCards.forEach(card => {
-            const category = card.getAttribute('data-category');
-            if (filter === 'all' || category === filter) {
-              card.style.display = 'flex';
-              card.style.animation = 'fadeIn 0.3s ease forwards';
-            } else {
-              card.style.display = 'none';
-            }
-          });
-        });
-      });
-
-      // 6. Modal de Currículo
-      const cvModal = document.getElementById('cv-modal');
-      const openModalBtn = document.getElementById('btn-open-cv-modal');
-      const closeModalBtn = document.getElementById('modal-close-btn');
-      const modalCloseAction = document.getElementById('btn-modal-close-action');
-      const printBtn = document.getElementById('btn-print-cv');
-
-      const openModal = () => {
-        cvModal.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      };
-
-      const closeModal = () => {
-        cvModal.classList.remove('open');
-        document.body.style.overflow = '';
-      };
-
-      openModalBtn.addEventListener('click', openModal);
-      closeModalBtn.addEventListener('click', closeModal);
-      modalCloseAction.addEventListener('click', closeModal);
-
-      cvModal.addEventListener('click', (e) => {
-        if (e.target === cvModal) {
-          closeModal();
-        }
-      });
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && cvModal.classList.contains('open')) {
-          closeModal();
-        }
-      });
-
-      printBtn.addEventListener('click', () => {
-        window.print();
-      });
-
-      // 7. Active link no scroll (IntersectionObserver)
-      const sections = document.querySelectorAll('section[id]');
-      const navLinks = document.querySelectorAll('.nav-link');
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id');
-            navLinks.forEach(link => {
-              if (link.getAttribute('href') === `#${id}`) {
-                link.classList.add('active');
-              } else {
-                link.classList.remove('active');
-              }
-            });
-          }
-        });
-      }, {
-        rootMargin: '-30% 0px -60% 0px'
-      });
-
-      sections.forEach(sec => observer.observe(sec));
-    });
-  </script>
-</body>
-</html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nailson Xavier — UX/UI &amp; Product Designer</title>
+<meta name="description" content="Portfólio de Nailson Xavier - UX/UI &amp; Product Designer com base em Sistemas para Internet, Growth e Product Management. Interfaces limpas, validação de hipóteses e impacto nos negócios.">
+<meta name="author" content="Nailson Xavier"><meta name="keywords" content="UX Designer, UI Designer, Product Designer, Growth, CRO, Testes AB, Recife, Nailson Xavier, Sistemas para Internet"><meta property="og:type" content="website"><meta property="og:title" content="Nailson Xavier — UX/UI &amp; Product Designer"><meta property="og:description" content="Conectando design centrado no usuário, dados e impacto nos negócios. Conheça meus projetos, trajetórias e habilidades."><meta property="og:locale" content="pt_BR">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>:root{--bg-primary:#FAFAFA;--bg-secondary:#FFF;--bg-surface:#F1F3F5;--bg-surface-hover:#E9ECEF;--border-subtle:#E9ECEF;--border-strong:#E2E8F0;--text-primary:#111827;--text-secondary:#4B5563;--text-muted:#6B7280;--text-inverse:#FFF;--accent-dark:#0F172A;--accent-dark-hover:#1E293B;--accent-blue:#2563EB;--accent-emerald:#059669;--accent-emerald-light:#ECFDF5;--font-display:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;--font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;--container-max:1200px;--radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,.04);--shadow-md:0 4px 20px -2px rgba(15,23,42,.06),0 2px 6px -1px rgba(15,23,42,.04);--shadow-lg:0 20px 25px -5px rgba(15,23,42,.08),0 8px 10px -6px rgba(15,23,42,.03);--transition-fast:150ms ease;--transition-normal:250ms cubic-bezier(.16,1,.3,1);--transition-slow:400ms cubic-bezier(.16,1,.3,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px;-webkit-font-smoothing:antialiased}
+body{background:var(--bg-primary);color:var(--text-secondary);font-family:var(--font-body);line-height:1.65;overflow-x:hidden;min-height:100vh}
+h1,h2,h3,h4{color:var(--text-primary);font-family:var(--font-display);font-weight:700;line-height:1.2;letter-spacing:-.02em}
+p{margin-bottom:1rem}p:last-child{margin-bottom:0}
+a{color:inherit;text-decoration:none;transition:color var(--transition-fast)}
+ul{list-style:none}img,svg{display:block;max-width:100%}
+.container{width:100%;max-width:var(--container-max);margin:0 auto;padding:0 1.5rem}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+@media(min-width:768px){.container{padding:0 2rem}}
+.section{padding:5rem 0;position:relative}
+@media(min-width:1024px){.section{padding:6.5rem 0}}
+.section-header{margin-bottom:3.5rem;max-width:680px}
+.section-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.8125rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--accent-blue);margin-bottom:.75rem}
+.section-title{font-size:clamp(1.85rem,3.5vw,2.5rem);margin-bottom:.875rem}
+.section-subtitle{font-size:1.0625rem;color:var(--text-secondary);line-height:1.6}
+.site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border-subtle);transition:all var(--transition-normal)}
+.site-header.scrolled{background:rgba(255,255,255,.94);box-shadow:0 4px 20px rgba(0,0,0,.03)}
+.nav-wrapper{display:flex;align-items:center;justify-content:space-between;height:4.5rem}
+.logo{display:flex;align-items:center;gap:.75rem;font-family:var(--font-display);font-size:1.125rem;font-weight:700;color:var(--text-primary)}
+.logo-badge{width:8px;height:8px;border-radius:9999px;background:var(--accent-dark)}
+.logo-role{font-size:.8125rem;font-weight:500;color:var(--text-muted);padding-left:.75rem;border-left:1px solid var(--border-subtle);display:none}
+@media(min-width:640px){.logo-role{display:inline-block}}
+.nav-menu{display:none;align-items:center;gap:2rem}
+@media(min-width:860px){.nav-menu{display:flex}}
+.nav-link{font-size:.9375rem;font-weight:500;color:var(--text-secondary);position:relative;padding:.5rem 0}
+.nav-link:hover,.nav-link.active{color:var(--text-primary)}
+.nav-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--accent-dark);transition:width var(--transition-normal);border-radius:2px}
+.nav-link:hover::after,.nav-link.active::after{width:100%}
+.nav-actions{display:flex;align-items:center;gap:1rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.625rem 1.25rem;font-size:.875rem;font-weight:600;border-radius:var(--radius-md);transition:all var(--transition-normal);cursor:pointer;border:1px solid transparent;line-height:1.25;white-space:nowrap;font-family:inherit}
+.btn-primary{background:var(--accent-dark);color:#fff;box-shadow:0 2px 4px rgba(15,23,42,.12)}
+.btn-primary:hover{background:var(--accent-dark-hover);transform:translateY(-1px);box-shadow:0 4px 12px rgba(15,23,42,.18);color:#fff}
+.btn-secondary{background:var(--bg-secondary);color:var(--text-primary);border-color:var(--border-strong)}
+.btn-secondary:hover{background:var(--bg-surface);border-color:#cbd5e1;transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--text-secondary)}
+.btn-ghost:hover{background:var(--bg-surface);color:var(--text-primary)}
+.btn-sm{padding:.45rem .875rem;font-size:.8125rem}
+.btn-lg{padding:.875rem 1.75rem;font-size:1rem;border-radius:var(--radius-lg)}
+.mobile-menu-btn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:var(--radius-md);border:1px solid var(--border-subtle);background:var(--bg-secondary);color:var(--text-primary);cursor:pointer}
+@media(min-width:860px){.mobile-menu-btn{display:none}}
+.mobile-nav{position:fixed;top:4.5rem;left:0;width:100%;background:var(--bg-secondary);border-bottom:1px solid var(--border-strong);padding:1.5rem;box-shadow:var(--shadow-lg);transform:translateY(-100%);opacity:0;visibility:hidden;transition:all var(--transition-slow);z-index:99}
+.mobile-nav.open{transform:none;opacity:1;visibility:visible}
+.mobile-nav-links{display:flex;flex-direction:column;gap:1rem;margin-bottom:1.5rem}
+.mobile-nav-links a{font-size:1.0625rem;font-weight:500;color:var(--text-primary);padding:.5rem 0}
+.hero-section{padding:3.5rem 0 5rem;position:relative;overflow:hidden}
+@media(min-width:1024px){.hero-section{padding:5rem 0 6.5rem}}
+.hero-split{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center}
+@media(min-width:900px){.hero-split{grid-template-columns:1fr .8fr;gap:4.5rem}.hero-text-col{order:1}.hero-image-col{order:2}}
+.hero-text-col{order:2}.hero-image-col{order:1;display:flex;justify-content:center}
+.hero-portrait-wrap{position:relative;width:280px;height:340px}
+@media(min-width:640px){.hero-portrait-wrap{width:340px;height:420px}}
+@media(min-width:1024px){.hero-portrait-wrap{width:380px;height:460px}}
+.hero-portrait-wrap::before{content:'';position:absolute;top:12px;left:12px;right:-12px;bottom:-12px;border-radius:var(--radius-xl);border:2px solid var(--border-subtle);z-index:0;transition:all var(--transition-normal)}
+.hero-portrait-wrap:hover::before{top:8px;left:8px;right:-8px;bottom:-8px;border-color:var(--accent-blue)}
+.hero-portrait{position:relative;width:100%;height:100%;border-radius:var(--radius-xl);overflow:hidden;z-index:1;background:linear-gradient(145deg,#E2E8F0,#CBD5E1 50%,#94A3B8);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-lg);transition:transform var(--transition-normal)}
+.hero-portrait-wrap:hover .hero-portrait{transform:translateY(-4px)}
+.hero-portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.avatar-initials{font-family:var(--font-display);font-size:5rem;font-weight:800;color:rgba(255,255,255,.7);letter-spacing:.05em;user-select:none}
+.hero-greeting{font-size:1rem;font-weight:600;color:var(--accent-blue);margin-bottom:.625rem;display:flex;align-items:center;gap:.5rem}
+.status-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent-emerald-light);border:1px solid rgba(5,150,105,.2);color:#065f46;font-size:.8125rem;font-weight:600;padding:.35rem .95rem;border-radius:9999px;margin-bottom:1.25rem}
+.status-dot{width:8px;height:8px;border-radius:50%;background:var(--accent-emerald);position:relative}
+.status-dot::after{content:'';position:absolute;top:-2px;left:-2px;width:12px;height:12px;border-radius:50%;background:var(--accent-emerald);opacity:.4;animation:pulse 2s infinite ease-out}
+@keyframes pulse{0%{transform:scale(.9);opacity:.8}50%{transform:scale(1.6);opacity:0}100%{transform:scale(.9);opacity:0}}
+.hero-title{font-size:clamp(2.25rem,4.8vw,3.25rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:1.25rem}
+.hero-accent{background:linear-gradient(135deg,var(--accent-blue),var(--accent-emerald));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-bio{font-size:1.0625rem;line-height:1.7;margin-bottom:1.75rem}
+.hero-bio strong{color:var(--text-primary);font-weight:600}
+.hero-tags{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:2rem}
+.hero-tag{display:inline-flex;align-items:center;gap:.4rem;font-size:.8125rem;font-weight:500;color:var(--text-primary);background:var(--bg-surface);border:1px solid var(--border-subtle);padding:.3rem .75rem;border-radius:9999px}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:1rem;margin-bottom:3rem}
+.hero-metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;padding-top:2.5rem;border-top:1px solid var(--border-subtle)}
+@media(min-width:640px){.hero-metrics{grid-template-columns:repeat(4,1fr)}}
+.metric-item{display:flex;flex-direction:column}
+.metric-value{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--text-primary);letter-spacing:-.02em}
+.metric-label{font-size:.8125rem;color:var(--text-muted);margin-top:.25rem;line-height:1.4}
+.about-grid{display:grid;grid-template-columns:1fr;gap:3rem;align-items:start}
+@media(min-width:900px){.about-grid{grid-template-columns:1.2fr 1fr;gap:4rem}}
+.editorial-lead{font-size:1.25rem;line-height:1.7;color:var(--text-primary);margin-bottom:1.5rem}
+.editorial-body{line-height:1.75}
+.pillars-grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
+@media(min-width:540px){.pillars-grid{grid-template-columns:repeat(2,1fr)}}
+.pillar-card{background:var(--bg-secondary);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:1.5rem;transition:all var(--transition-normal)}
+.pillar-card:hover{border-color:var(--border-strong);transform:translateY(-2px);box-shadow:var(--shadow-sm)}
+.pillar-icon,.skill-icon-badge{border-radius:var(--radius-md);background:var(--bg-surface);display:flex;align-items:center;justify-content:center;color:var(--text-primary)}
+.pillar-icon{width:40px;height:40px;margin-bottom:1rem}
+.pillar-title{font-size:1rem;font-weight:600;margin-bottom:.35rem}
+.pillar-desc{font-size:.875rem;color:var(--text-muted);line-height:1.5}
+.skills-filter-nav{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
+.filter-btn{padding:.45rem 1rem;font-size:.8125rem;font-weight:500;font-family:inherit;border-radius:9999px;background:var(--bg-secondary);border:1px solid var(--border-subtle);color:var(--text-secondary);cursor:pointer;transition:all var(--transition-fast)}
+.filter-btn:hover{border-color:var(--border-strong);color:var(--text-primary)}
+.filter-btn.active{background:var(--accent-dark);border-color:var(--accent-dark);color:#fff}
+.skills-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
+@media(min-width:640px){.skills-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.skills-grid{grid-template-columns:repeat(3,1fr)}}
+.skill-card{background:var(--bg-secondary);border:1px solid var(--border-subtle);border-radius:var(--radius-xl);padding:2rem;transition:all var(--transition-normal);display:flex;flex-direction:column}
+.skill-card:hover{border-color:#cbd5e1;transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.skill-card-header{display:flex;align-items:center;gap:.875rem;margin-bottom:1.25rem}
+.skill-icon-badge{width:44px;height:44px;color:var(--accent-dark)}
+.skill-category-title{font-size:1.125rem;font-weight:600}
+.skill-desc{font-size:.875rem;color:var(--text-muted);margin-bottom:1.25rem}
+.skill-chips,.partner-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:auto}
+.chip{background:#F1F5F9;color:#334155;font-size:.8125rem;font-weight:500;padding:.35rem .75rem;border-radius:9999px;display:inline-flex;align-items:center;gap:.35rem;transition:all var(--transition-fast)}
+.chip:hover{background:#E2E8F0;color:var(--text-primary)}
+.timeline{position:relative;max-width:880px}
+.timeline::before{content:'';position:absolute;top:1.5rem;bottom:2rem;left:19px;width:2px;background:var(--border-subtle)}
+.timeline-item{position:relative;padding-left:3.5rem;margin-bottom:2.5rem}.timeline-item:last-child{margin-bottom:0}
+.timeline-dot{position:absolute;top:1.25rem;left:12px;width:16px;height:16px;border-radius:50%;background:var(--bg-secondary);border:3px solid var(--accent-dark);z-index:2;transition:transform var(--transition-normal)}
+.timeline-item:first-child .timeline-dot{border-color:var(--accent-blue);box-shadow:0 0 0 4px rgba(37,99,235,.15)}
+.timeline-item:hover .timeline-dot{transform:scale(1.25)}
+.timeline-card{background:var(--bg-secondary);border:1px solid var(--border-subtle);border-radius:var(--radius-xl);padding:2rem;transition:all var(--transition-normal)}
+.timeline-card:hover{border-color:#cbd5e1;transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.timeline-header{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.25rem}
+@media(min-width:640px){.timeline-header{flex-direction:row;justify-content:space-between;align-items:baseline}}
+.role-title{font-size:1.25rem}
+.company-name{font-size:1rem;font-weight:500;color:var(--accent-blue)}
+.timeline-badge{display:inline-flex;font-size:.8125rem;font-weight:600;color:var(--text-muted);background:var(--bg-surface);padding:.25rem .75rem;border-radius:9999px;width:fit-content}
+.timeline-tasks{display:flex;flex-direction:column;gap:.625rem}
+.timeline-task{display:flex;align-items:flex-start;gap:.75rem;font-size:.9375rem;line-height:1.55}
+.task-bullet{width:6px;height:6px;border-radius:50%;background:var(--text-muted);margin-top:.55rem;flex-shrink:0}
+.projects-grid{display:grid;grid-template-columns:1fr;gap:1.75rem}
+@media(min-width:768px){.projects-grid{grid-template-columns:repeat(2,1fr)}}
+.project-card{background:var(--bg-secondary);border:1px solid var(--border-subtle);border-radius:var(--radius-xl);padding:2.25rem;transition:all var(--transition-normal);display:flex;flex-direction:column;justify-content:space-between}
+.project-card:hover{border-color:#cbd5e1;transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.project-tag{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-blue);margin-bottom:.75rem;display:block}
+.project-title{font-size:1.35rem;margin-bottom:.75rem}
+.project-desc{font-size:.9375rem;line-height:1.6;margin-bottom:1.5rem}
+.partner-chips{padding-top:1.25rem;border-top:1px solid var(--border-subtle)}
+.partner-label{font-size:.75rem;color:var(--text-muted);width:100%;font-weight:500}
+.edu-grid{display:grid;grid-template-columns:1fr;gap:2rem}
+@media(min-width:900px){.edu-grid{grid-template-columns:1fr 1fr}}
+.card-boxed{background:var(--bg-secondary);border:1px solid var(--border-subtle);border-radius:var(--radius-xl);padding:2.25rem}
+.card-boxed-title{font-size:1.25rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
+.grad-item{padding-bottom:1.5rem;margin-bottom:1.5rem;border-bottom:1px solid var(--border-subtle)}
+.grad-title{font-size:1.125rem;font-weight:600;color:var(--text-primary)}
+.grad-inst{font-size:.9375rem;color:var(--accent-blue);font-weight:500;margin-top:.15rem}
+.grad-meta{font-size:.8125rem;color:var(--text-muted);margin-top:.25rem}
+.cert-list{display:flex;flex-direction:column;gap:1rem}
+.cert-item{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.75rem 1rem;background:var(--bg-primary);border:1px solid var(--border-subtle);border-radius:var(--radius-md);transition:background var(--transition-fast)}
+.cert-item:hover{background:var(--bg-surface)}
+.cert-name{font-size:.9375rem;font-weight:600;color:var(--text-primary)}
+.cert-org{font-size:.8125rem;color:var(--text-muted);font-weight:500}
+.lang-item{display:flex;justify-content:space-between;align-items:center;gap:.75rem;padding:.75rem 0;border-bottom:1px solid var(--border-subtle)}.lang-item:last-child{border:0}
+.lang-name{font-weight:600;font-size:.9375rem;color:var(--text-primary)}
+.lang-level{font-size:.8125rem;color:var(--text-muted);background:var(--bg-surface);padding:.2rem .65rem;border-radius:9999px}
+.contact-card{background:linear-gradient(145deg,#111827,#0F172A);border-radius:var(--radius-xl);padding:3rem 2rem;color:#fff;position:relative;overflow:hidden}
+@media(min-width:768px){.contact-card{padding:4.5rem}}
+.contact-card::after{content:'';position:absolute;top:-40%;right:-20%;width:500px;height:500px;background:radial-gradient(circle,rgba(37,99,235,.15),rgba(37,99,235,0) 70%);border-radius:50%;pointer-events:none}
+.contact-header{max-width:640px;margin-bottom:2.75rem;position:relative;z-index:1}
+.contact-header h2{color:#fff;font-size:clamp(2rem,4vw,2.75rem);margin-bottom:1rem}
+.contact-header p{color:#94A3B8;font-size:1.125rem}
+.contact-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-bottom:3rem;position:relative;z-index:1}
+@media(min-width:640px){.contact-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1024px){.contact-grid{grid-template-columns:repeat(4,1fr)}}
+.contact-method{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-lg);padding:1.5rem;transition:all var(--transition-normal);display:flex;flex-direction:column;justify-content:space-between}
+.contact-method:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);transform:translateY(-2px)}
+.method-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:#94A3B8;margin-bottom:.5rem;display:block}
+.method-val{font-size:.9375rem;font-weight:600;color:#fff;word-break:break-all}
+.method-action{margin-top:1rem;display:inline-flex;align-items:center;gap:.35rem;font-size:.8125rem;color:#60A5FA;font-weight:500}
+.method-action:hover{color:#93C5FD}
+.site-footer{padding:3rem 0;border-top:1px solid var(--border-subtle);margin-top:4rem;font-size:.875rem;color:var(--text-muted)}
+.footer-content{display:flex;flex-direction:column;gap:1.25rem;align-items:center;justify-content:space-between}
+@media(min-width:640px){.footer-content{flex-direction:row}}
+.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}.footer-links a:hover{color:var(--text-primary)}
+.toast{position:fixed;bottom:2rem;right:2rem;background:var(--accent-dark);color:#fff;padding:.875rem 1.25rem;border-radius:var(--radius-md);box-shadow:var(--shadow-lg);font-size:.875rem;font-weight:500;display:flex;align-items:center;gap:.625rem;opacity:0;transform:translateY(1rem);pointer-events:none;transition:all var(--transition-normal);z-index:1000}
+.toast.show{opacity:1;transform:none;pointer-events:auto}
+.back-to-top{position:fixed;bottom:2rem;left:2rem;width:44px;height:44px;border-radius:50%;background:var(--bg-secondary);border:1px solid var(--border-strong);color:var(--text-primary);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-md);cursor:pointer;opacity:0;visibility:hidden;transform:translateY(10px);transition:all var(--transition-normal);z-index:90}
+.back-to-top.visible{opacity:1;visibility:visible;transform:none}
+.modal-overlay{position:fixed;inset:0;background:rgba(15,23,42,.6);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;z-index:200;padding:1.5rem;opacity:0;visibility:hidden;transition:all var(--transition-normal)}
+.modal-overlay.open{opacity:1;visibility:visible}
+.modal-card{background:var(--bg-secondary);border-radius:var(--radius-xl);max-width:600px;width:100%;padding:2.25rem;box-shadow:var(--shadow-lg);transform:scale(.95);transition:transform var(--transition-normal);max-height:90vh;overflow-y:auto}
+.modal-overlay.open .modal-card{transform:none}
+.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem}
+.modal-close{background:none;border:0;font-size:1.5rem;cursor:pointer;color:var(--text-muted);padding:.25rem}
+.modal-close:hover{color:var(--text-primary)}
+.alt-sec{background:var(--bg-secondary);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)}
+:focus-visible{outline:2px solid var(--accent-blue);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+@media print{.site-header,.hero-actions,.mobile-nav,.back-to-top,.toast,.skills-filter-nav{display:none!important}body{background:#fff;color:#000}.container{max-width:100%;padding:0}.section{padding:1.5rem 0}}
+
+/* ===== v3: azul nos quadros com ícones, chips e estados de interação ===== */
+:root{--blue-tint:rgba(37,99,235,.10);--blue-tint-2:rgba(37,99,235,.17);--blue-ink:#1D4ED8}
+.hero-portrait-wrap::after{content:'';position:absolute;top:-30px;right:-30px;width:100px;height:100px;background:radial-gradient(circle,rgba(37,99,235,.1),transparent 70%);border-radius:50%;pointer-events:none}
+.hero-tag{background:var(--blue-tint);border-color:rgba(37,99,235,.18)}
+.hero-tag svg,.meta-line svg,.section-eyebrow svg{color:var(--accent-blue)}
+.pillar-icon,.skill-icon-badge,.title-icon{background:var(--blue-tint);color:var(--accent-blue)}
+.title-icon{width:40px;height:40px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.chip,.timeline-badge,.lang-level,.cert-tag{background:var(--blue-tint);color:var(--blue-ink)}
+.chip:hover{background:var(--blue-tint-2);color:var(--blue-ink)}
+.cert-tag{font-size:.75rem;font-weight:600;padding:.25rem .7rem;border-radius:9999px;white-space:nowrap;flex-shrink:0}
+.meta-line{margin-top:2rem;display:flex;gap:1rem;align-items:center;flex-wrap:wrap;font-size:.875rem;color:var(--text-primary);font-weight:500}
+.meta-line span{display:inline-flex;align-items:center;gap:.5rem}.meta-line .dot{color:var(--border-strong)}
+.edu-grid{margin-bottom:2rem}
+.cert-columns{display:grid;grid-template-columns:1fr;gap:1rem}
+@media(min-width:760px){.cert-columns{grid-template-columns:1fr 1fr;gap:1.5rem}}
+.cert-item{align-items:flex-start}
+/* botões: azul só em hover, clique e seleção (cabeçalho e menu mobile ficam como estavam) */
+main .btn-primary:hover{background:var(--accent-blue);box-shadow:0 4px 12px rgba(37,99,235,.3)}
+main .btn-secondary:hover{background:var(--blue-tint);border-color:var(--accent-blue);color:var(--blue-ink)}
+main .btn-ghost:hover{background:var(--blue-tint);color:var(--blue-ink)}
+main .btn:active{background:var(--accent-blue);border-color:var(--accent-blue);color:#fff}
+.btn-light{background:#fff;color:#0F172A;border-color:transparent}
+main .btn-light:hover{background:var(--accent-blue);color:#fff;border-color:transparent}
+.filter-btn:hover{border-color:var(--accent-blue);color:var(--blue-ink);background:var(--blue-tint)}
+.filter-btn.active,.filter-btn.active:hover{background:var(--accent-blue);border-color:var(--accent-blue);color:#fff}
+.back-to-top:hover{background:var(--blue-tint);border-color:var(--accent-blue);color:var(--accent-blue);transform:translateY(-2px)}
+#copy-email-btn:hover{color:#60A5FA}
+.card-boxed .grad-item:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+
+/* ===== v4: hero (foto à direita, botões na mesma linha) e contato ===== */
+@media(min-width:900px){.hero-text-col{order:1}.hero-image-col{order:2}}
+.hero-actions{flex-wrap:nowrap;gap:clamp(.4rem,1.2vw,1rem)}
+.hero-actions .btn-lg{flex:0 1 auto;min-width:0;font-size:clamp(.78rem,1.5vw,1rem);padding:.85rem clamp(.65rem,1.7vw,1.6rem);gap:.4rem}
+@media(max-width:479px){.hero-actions .btn-lg svg{display:none}.hero-actions .btn-lg{padding:.8rem .55rem}}
+.contact-grid{grid-template-columns:1fr}
+@media(min-width:640px){.contact-grid{grid-template-columns:repeat(2,1fr)}.contact-grid .contact-method:first-child{grid-column:1/-1}}
+@media(min-width:1024px){.contact-grid{grid-template-columns:1.45fr 1fr 1fr}.contact-grid .contact-method:first-child{grid-column:auto}}
+.method-val{word-break:normal;overflow-wrap:normal;white-space:nowrap}
+.contact-method:first-child .method-val{font-size:clamp(.78rem,3.7vw,.9375rem)}
+@media(max-width:639px){.contact-card{padding:3rem 1.25rem}}
+
+/* ===== v5: cartões de contato com o mesmo tamanho ===== */
+.contact-grid{grid-template-columns:1fr}
+.contact-grid .contact-method:first-child{grid-column:auto}
+@media(min-width:640px) and (max-width:1023px){.contact-grid{grid-template-columns:1fr}}
+@media(min-width:1024px){.contact-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:1024px) and (max-width:1199px){.contact-card{padding:3rem}}
+.contact-method{min-height:9.5rem}
+.contact-method:first-child .method-val{font-size:clamp(.78rem,3.7vw,.9375rem)}
+</style></head><body>
+<header class="site-header" id="header"><div class="container"><div class="nav-wrapper">
+<a href="#hero" class="logo" aria-label="Nailson Xavier Home"><span class="logo-badge"></span><span>Nailson Xavier</span><span class="logo-role">UX/UI &amp; Product</span></a>
+<nav class="nav-menu" aria-label="Navegação Principal"><a href="#sobre" class="nav-link">Sobre</a><a href="#habilidades" class="nav-link">Habilidades</a><a href="#experiencia" class="nav-link">Experiência</a><a href="#projetos" class="nav-link">Projetos</a><a href="#formacao" class="nav-link">Formação</a><a href="#contato" class="nav-link">Contato</a></nav>
+<div class="nav-actions"><a href="https://wa.me/5581973385349" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" ><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg><span>Fale Comigo</span></a>
+<button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Abrir Menu" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button></div></div></div></header>
+<div class="mobile-nav" id="mobile-nav"><div class="mobile-nav-links"><a href="#sobre" class="mobile-nav-link">Sobre</a><a href="#habilidades" class="mobile-nav-link">Habilidades</a><a href="#experiencia" class="mobile-nav-link">Experiência</a><a href="#projetos" class="mobile-nav-link">Projetos &amp; Comunidade</a><a href="#formacao" class="mobile-nav-link">Formação &amp; Certificações</a><a href="#contato" class="mobile-nav-link">Contato</a></div>
+<div style="display:flex;gap:.75rem;flex-direction:column"><a href="https://wa.me/5581973385349" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width:100%">WhatsApp Direto</a><a href="mailto:nailson.xavier@outlook.com" class="btn btn-secondary" style="width:100%">Enviar E-mail</a></div></div>
+<main>
+<section class="hero-section" id="hero"><div class="container"><div class="hero-split">
+<div class="hero-text-col"><div class="hero-greeting"><span>👋</span><span>Olá, prazer! Eu sou</span></div>
+<h1 class="hero-title">Nailson Xavier<br><span class="hero-accent">UX/UI &amp; Product Designer</span></h1>
+<p class="hero-bio">Sou formado em <strong>Sistemas para Internet pela UNICAP</strong> e venho aprofundando minha visão estratégica com formações em <strong>Product Management</strong> e <strong>Design de Produtos Digitais</strong> (EBAC e CESAR School). Atuo na intersecção entre a resolução de dores do usuário, experimentação com testes A/B e viabilidade técnica, colaborando com times multidisciplinares e internacionais.</p>
+<div class="hero-tags"><span class="hero-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Recife - PE, Brasil</span><span class="hero-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Remoto / Híbrido</span></div>
+<div class="status-badge"><span class="status-dot"></span><span>Disponível para novos desafios em UX/UI &amp; Produto</span></div>
+<div class="hero-actions"><a href="#experiencia" class="btn btn-primary btn-lg"><span>Ver Experiências</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
+<button class="btn btn-secondary btn-lg" id="btn-open-cv-modal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg><span>Resumo / CV</span></button>
+<a href="#contato" class="btn btn-ghost btn-lg"><span>Fale Comigo</span></a></div></div>
+<div class="hero-image-col"><div class="hero-portrait-wrap"><div class="hero-portrait"><span class="avatar-initials" aria-hidden="true">NX</span><img src="foto-nailson.jpg" alt="Foto de Nailson Xavier — UX/UI &amp; Product Designer" onerror="this.remove()"></div></div></div></div>
+<div class="hero-metrics"><div class="metric-item"><span class="metric-value">3+ anos</span><span class="metric-label">de vivência em tecnologia &amp; marketing</span></div><div class="metric-item"><span class="metric-value">UNICAP</span><span class="metric-label">Graduado em Sistemas para Internet</span></div><div class="metric-item"><span class="metric-value">Data &amp; CRO</span><span class="metric-label">Testes A/B &amp; usabilidade analítica</span></div><div class="metric-item"><span class="metric-value">Global</span><span class="metric-label">Comunicação e alinhamento em inglês</span></div></div></div></section>
+<section class="section alt-sec" id="sobre"><div class="container"><div class="section-header"><span class="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Perfil Estratégico</span><h2 class="section-title">Sobre Mim</h2></div>
+<div class="about-grid"><div><p class="editorial-lead">Sou formado em <strong>Sistemas para Internet pela UNICAP</strong> e venho aprofundando minha visão estratégica com formações em <strong>Product Management</strong> e <strong>Design de Produtos Digitais</strong> (EBAC e CESAR School).</p><p class="editorial-body">Atuo na intersecção entre a <strong>resolução de dores reais do usuário</strong>, <strong>experimentação com testes A/B</strong> e <strong>viabilidade técnica</strong>, colaborando estreitamente com times multidisciplinares e internacionais. Minha bagagem em tecnologia permite dialogar com equipes de engenharia de software, enquanto o foco em CRO e Growth assegura que cada decisão de design gere ponte mensurável com os objetivos do negócio.</p><div class="meta-line"><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Recife - PE, Brasil</span><span class="dot">•</span><span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Disponível Remoto / Híbrido</span></div></div>
+<div class="pillars-grid"><div class="pillar-card"><div class="pillar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg></div><h3 class="pillar-title">Design Centrado no Usuário</h3><p class="pillar-desc">Criação de fluxos sem fricção, wireframes de alta fidelidade e design systems consistentes no Figma.</p></div><div class="pillar-card"><div class="pillar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></div><h3 class="pillar-title">Orientado a Dados &amp; CRO</h3><p class="pillar-desc">Otimização de taxas de conversão (CTR, retenção, ativação) por meio de testes A/B e ferramentas como Clarity e Hotjar.</p></div><div class="pillar-card"><div class="pillar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div><h3 class="pillar-title">Fundação Técnica</h3><p class="pillar-desc">Conhecimento real de HTML, CSS, WordPress e arquitetura web, facilitando a ponte produtiva com times de dev.</p></div><div class="pillar-card"><div class="pillar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div><h3 class="pillar-title">Alinhamento Global</h3><p class="pillar-desc">Experiência direta com stakeholders e lideranças globais na Itália em squads ágeis com comunicação em inglês.</p></div></div></div></div></section>
+<section class="section" id="habilidades"><div class="container"><div class="section-header"><span class="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> Competências Técnicas</span><h2 class="section-title">Habilidades &amp; Ferramental</h2><p class="section-subtitle">Combinação estratégica de design de produto, métodos analíticos, engenharia de software e inteligência artificial aplicada.</p></div>
+<div class="skills-filter-nav"><button class="filter-btn active" data-filter="all">Todas as Áreas</button><button class="filter-btn" data-filter="design">Design &amp; UX/UI</button><button class="filter-btn" data-filter="cro">Pesquisa &amp; Dados (CRO)</button><button class="filter-btn" data-filter="tech">Tecnologia &amp; Web</button><button class="filter-btn" data-filter="business">Negócios &amp; Gestão</button><button class="filter-btn" data-filter="ai">Inteligência Artificial</button></div>
+<div class="skills-grid"><div class="skill-card" data-category="design"><div class="skill-card-header"><div class="skill-icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path><path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path><path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path><path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path><path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path></svg></div><h3 class="skill-category-title">Design &amp; UX/UI</h3></div><p class="skill-desc">Concepção visual, arquitetura da informação e sistemas de design escaláveis.</p><div class="skill-chips"><span class="chip">Figma</span><span class="chip">FigJam</span><span class="chip">Prototipação Rápida</span><span class="chip">Design Systems</span><span class="chip">Wireframes</span><span class="chip">Arquitetura de Informação</span><span class="chip">Adobe Suite</span></div></div><div class="skill-card" data-category="cro"><div class="skill-card-header"><div class="skill-icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg></div><h3 class="skill-category-title">Pesquisa, CRO &amp; Dados</h3></div><p class="skill-desc">Validação analítica de comportamento, mapas de calor e funis de conversão.</p><div class="skill-chips"><span class="chip">Testes A/B</span><span class="chip">Microsoft Clarity</span><span class="chip">Hotjar</span><span class="chip">Google Analytics</span><span class="chip">Typeform</span><span class="chip">Métricas de Conversão (CTR)</span><span class="chip">Taxa de Ativação</span><span class="chip">Churn</span></div></div><div class="skill-card" data-category="tech"><div class="skill-card-header"><div class="skill-icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div><h3 class="skill-category-title">Tecnologia &amp; Web</h3></div><p class="skill-desc">Base acadêmica em desenvolvimento front-end e arquitetura para a internet.</p><div class="skill-chips"><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">WordPress</span><span class="chip">Python</span><span class="chip">Engenharia de Software</span><span class="chip">Responsividade</span></div></div><div class="skill-card" data-category="business"><div class="skill-card-header"><div class="skill-icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div><h3 class="skill-category-title">Negócios &amp; Metodologias</h3></div><p class="skill-desc">Gestão ágil, estratégia de produto e comunicação com stakeholders.</p><div class="skill-chips"><span class="chip">Scrum</span><span class="chip">Kanban</span><span class="chip">Jira</span><span class="chip">Notion</span><span class="chip">Alinhamento de Stakeholders</span><span class="chip">Estratégia de Growth</span></div></div><div class="skill-card" data-category="ai"><div class="skill-card-header"><div class="skill-icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M12 2a10 10 0 1 0 10 10H12V2z"></path><path d="M12 12 2.1 12.05"></path><path d="M12 12a10 10 0 0 1 8.8-5"></path><circle cx="12" cy="12" r="2"></circle></svg></div><h3 class="skill-category-title">Inteligência Artificial</h3></div><p class="skill-desc">Aceleração de fluxos de trabalho de UI/UX e automação de hipóteses com IA.</p><div class="skill-chips"><span class="chip">Prompt Engineering</span><span class="chip">ChatGPT</span><span class="chip">Claude</span><span class="chip">Figma AI</span><span class="chip">Fluxos com LLMs</span></div></div></div></div></section>
+<section class="section alt-sec" id="experiencia"><div class="container"><div class="section-header"><span class="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> Carreira</span><h2 class="section-title">Experiência Profissional</h2><p class="section-subtitle">Trajetória com impacto prático em operações multinacionais, marcas consolidadas e franquias.</p></div><div class="timeline"><div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-header"><div><h3 class="role-title">Analista Growth Marketing - Junior</h3><div class="company-name">UMANA Brasil (Multinacional Italiana)</div></div><div class="timeline-badge">Agosto 2026 – Atualmente</div></div><div class="timeline-tasks"><div class="timeline-task"><span class="task-bullet"></span><span>Estruturação dos canais e materiais institucionais para a operação brasileira da multinacional italiana.</span></div><div class="timeline-task"><span class="task-bullet"></span><span>Alinhamento direto em inglês com a liderança e time global de marketing na Itália.</span></div><div class="timeline-task"><span class="task-bullet"></span><span>Otimização de jornadas de navegação e landing pages com foco em usabilidade e redução de atrito.</span></div><div class="timeline-task"><span class="task-bullet"></span><span>Execução de testes A/B e acompanhamento sistemático de métricas analíticas (CTR, conversões e retenção).</span></div></div></div></div><div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-header"><div><h3 class="role-title">Marketing e Brand Designer</h3><div class="company-name">WR Formaturas</div></div><div class="timeline-badge">Julho 2025 – Março 2026</div></div><div class="timeline-tasks"><div class="timeline-task"><span class="task-bullet"></span><span>Condução de projetos de comunicação, hierarquia visual e identidade de marca de ponta a ponta.</span></div><div class="timeline-task"><span class="task-bullet"></span><span>Alinhamento de escopos, briefings e expectativas diretamente com clientes e parceiros estratégicos.</span></div></div></div></div><div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-header"><div><h3 class="role-title">Assistente de Marketing &amp; Estagiário</h3><div class="company-name">Franquia Ortoestética</div></div><div class="timeline-badge">Novembro 2023 – Maio 2025</div></div><div class="timeline-tasks"><div class="timeline-task"><span class="task-bullet"></span><span>Execução de testes de campanhas e pesquisas aprofundadas de mercado e concorrência.</span></div><div class="timeline-task"><span class="task-bullet"></span><span>Criação de interfaces promocionais, materiais institucionais e tratamento criterioso de ativos visuais.</span></div></div></div></div></div></div></section>
+<section class="section" id="projetos"><div class="container"><div class="section-header"><span class="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Iniciativas &amp; Ecossistema</span><h2 class="section-title">Projetos, Extensões &amp; Comunidade</h2><p class="section-subtitle">Atuação ativa no ecossistema de inovação, residências tecnológicas e mentoria de novos talentos.</p></div>
+<div class="projects-grid"><div class="project-card"><div><span class="project-tag">Residência Tecnológica</span><h3 class="project-title">Porto Digital (Onboard / Embarque Digital)</h3><p class="project-desc">Criação de soluções de tecnologia e produtos digitais aplicados a cenários reais de mercado, desenhados em imersão com gigantes do setor tecnológico.</p></div><div class="partner-chips"><span class="partner-label">Parceiros e Empresas Envolvidas:</span><span class="chip">Accenture</span><span class="chip">NTT Data</span><span class="chip">CMTech</span><span class="chip">Porto Digital</span></div></div><div class="project-card"><div><span class="project-tag">Comunidade &amp; Liderança</span><h3 class="project-title">Palestrante &amp; Mentor de Talentos em TI</h3><p class="project-desc">Mentoria prática para talentos ingressantes na área de tecnologia, além de condução de palestras e workshops sobre design de interfaces, sistemas para internet e transição profissional.</p></div><div class="partner-chips"><span class="partner-label">Eventos &amp; Instituições de Destaque:</span><span class="chip">Rec'n'Play (Festival de Tecnologia)</span><span class="chip">Semana da Computação UNICAP</span><span class="chip">Mentorias Comunitárias</span></div></div></div></div></section>
+<section class="section alt-sec" id="formacao"><div class="container"><div class="section-header"><span class="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg> Background Acadêmico</span><h2 class="section-title">Educação &amp; Certificações</h2></div>
+<div class="edu-grid">
+<div class="card-boxed"><h3 class="card-boxed-title"><span class="title-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>Graduação</h3>
+<div class="grad-item"><div class="grad-title">Tecnólogo em Sistemas para Internet</div><div class="grad-inst">Universidade Católica de Pernambuco (UNICAP)</div><div class="grad-meta">Concluído • 2022 – 2024</div></div></div>
+<div class="card-boxed"><h3 class="card-boxed-title"><span class="title-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg></span>Idiomas</h3>
+<div><div class="lang-item"><span class="lang-name">Português</span><span class="lang-level">Nativo</span></div><div class="lang-item"><span class="lang-name">Inglês</span><span class="lang-level">Intermediário (Comunicação de Negócios)</span></div><div class="lang-item"><span class="lang-name">Espanhol</span><span class="lang-level">Básico</span></div></div></div></div>
+<div class="card-boxed cert-card"><h3 class="card-boxed-title"><span class="title-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></span>Certificações &amp; Especializações</h3>
+<div class="cert-columns"><div class="cert-list"><div class="cert-item"><div><div class="cert-name">Product Management</div><div class="cert-org">EBAC — Escola Britânica de Artes Criativas</div></div><span class="cert-tag">Em andamento</span></div><div class="cert-item"><div><div class="cert-name">Digital Product Design</div><div class="cert-org">EBAC — Escola Britânica de Artes Criativas</div></div><span class="cert-tag">2026</span></div><div class="cert-item"><div><div class="cert-name">Design de Produtos Digitais</div><div class="cert-org">CESAR School</div></div><span class="cert-tag">2024</span></div><div class="cert-item"><div><div class="cert-name">Design Orientado por Dados</div><div class="cert-org">CESAR School</div></div><span class="cert-tag">2025</span></div></div>
+<div class="cert-list"><div class="cert-item"><div><div class="cert-name">UX Design</div><div class="cert-org">Alura</div></div><span class="cert-tag">2025</span></div><div class="cert-item"><div><div class="cert-name">Power BI Intermediário</div><div class="cert-org">Santander Open Academy</div></div><span class="cert-tag">2026</span></div><div class="cert-item"><div><div class="cert-name">Design Gráfico</div><div class="cert-org">Instituto Federal de Pernambuco (IFPE)</div></div><span class="cert-tag">2024</span></div><div class="cert-item"><div><div class="cert-name">Informática Profissional Avançado</div><div class="cert-org">ENNET</div></div><span class="cert-tag">2022</span></div></div></div></div></div></section>
+<section class="section" id="contato"><div class="container"><div class="contact-card"><div class="contact-header"><span style="display:inline-block;font-size:.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#60A5FA;margin-bottom:.75rem">Próximo Passo</span><h2>Vamos construir algo incrível juntos?</h2><p>Estou disponível para novas posições, projetos e consultorias estratégicas em UX/UI, Growth e Design de Produto.</p></div>
+<div class="contact-grid"><div class="contact-method"><div><span class="method-label">E-mail Direto</span><div class="method-val">nailson.xavier@outlook.com</div></div><div style="display:flex;gap:.75rem;align-items:center;margin-top:1rem"><a href="mailto:nailson.xavier@outlook.com" class="method-action" style="margin-top:0"><span>Escrever</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a><button id="copy-email-btn" style="background:none;border:0;cursor:pointer;color:#94A3B8;font-size:.8125rem;display:inline-flex;align-items:center;gap:.25rem;font-family:inherit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span>Copiar</span></button></div></div><div class="contact-method"><div><span class="method-label">WhatsApp</span><div class="method-val">(+55) 81 97338-5349</div></div><a href="https://wa.me/5581973385349" target="_blank" rel="noopener noreferrer" class="method-action"><span>Conversar no WhatsApp</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></div><div class="contact-method"><div><span class="method-label">Rede Profissional</span><div class="method-val">LinkedIn</div></div><a href="https://www.linkedin.com/in/nailsonxavier" target="_blank" rel="noopener noreferrer" class="method-action"><span>Conectar no LinkedIn</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a></div></div>
+<div style="border-top:1px solid rgba(255,255,255,.12);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;position:relative;z-index:1"><div style="font-size:.875rem;color:#94A3B8">Localização: <strong>Recife - PE, Brasil</strong></div><a href="mailto:nailson.xavier@outlook.com?subject=Contato%20via%20Portfolio" class="btn btn-light btn-sm">Iniciar Conversa por E-mail</a></div></div>
+<footer class="site-footer"><div class="footer-content"><div>© 2026 Nailson Xavier • UX/UI &amp; Product Designer</div><div class="footer-links"><a href="#hero">Início</a><a href="#sobre">Sobre</a><a href="#experiencia">Experiência</a><a href="#habilidades">Habilidades</a><a href="#contato">Contato</a></div></div></footer></div></section></main>
+<button class="back-to-top" id="back-to-top-btn" aria-label="Voltar ao início"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" ><polyline points="18 15 12 9 6 15"></polyline></svg></button>
+<div class="toast" id="toast-notification" role="status" aria-live="polite"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span id="toast-message">E-mail copiado!</span></div>
+<div class="modal-overlay" id="cv-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="modal-card"><div class="modal-header"><h3 id="modal-title" style="font-size:1.25rem">Nailson Xavier — Resumo Executivo</h3><button class="modal-close" id="modal-close-btn" aria-label="Fechar Modal">&times;</button></div>
+<div style="font-size:.9375rem;line-height:1.6"><p><strong>Cargo Atual:</strong> Analista Growth Marketing - Junior na UMANA Brasil</p><p><strong>Formação:</strong> Tecnólogo em Sistemas para Internet (UNICAP, 2022-2024)</p><p><strong>Especializações:</strong> Product Management (EBAC), Digital Product Design (EBAC), Design Orientado por Dados (CESAR School), UX Design (Alura).</p><p><strong>Contatos:</strong> nailson.xavier@outlook.com | (+55) 81 97338-5349</p><hr style="border:0;border-top:1px solid var(--border-subtle);margin:1.25rem 0"><p>Você pode imprimir este resumo ou salvar como PDF usando o botão abaixo:</p></div>
+<div style="margin-top:1.5rem;display:flex;gap:.75rem;justify-content:flex-end;flex-wrap:wrap"><button class="btn btn-secondary" id="btn-print-cv"><span>Imprimir / Salvar PDF</span></button><button class="btn btn-primary" id="btn-modal-close-action">Fechar</button></div></div></div>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+const $=id=>document.getElementById(id),header=$('header'),top=$('back-to-top-btn');
+addEventListener('scroll',()=>{header.classList.toggle('scrolled',scrollY>40);top.classList.toggle('visible',scrollY>400)});
+const mb=$('mobile-menu-toggle'),mn=$('mobile-nav');
+mb.addEventListener('click',()=>{const o=mn.classList.toggle('open');mb.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''});
+document.querySelectorAll('.mobile-nav-link').forEach(l=>l.addEventListener('click',()=>{mn.classList.remove('open');mb.setAttribute('aria-expanded','false');document.body.style.overflow=''}));
+top.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+const toast=$('toast-notification');function showToast(m){$('toast-message').textContent=m;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),3200)}
+$('copy-email-btn').addEventListener('click',async()=>{const e='nailson.xavier@outlook.com';try{await navigator.clipboard.writeText(e);showToast('E-mail copiado com sucesso!')}catch(x){showToast('E-mail: '+e)}});
+const fb=document.querySelectorAll('.filter-btn'),cards=document.querySelectorAll('.skill-card');
+fb.forEach(b=>b.addEventListener('click',()=>{fb.forEach(x=>x.classList.remove('active'));b.classList.add('active');const f=b.dataset.filter;cards.forEach(c=>{const show=f==='all'||c.dataset.category===f;c.style.display=show?'flex':'none';if(show)c.style.animation='fadeIn .3s ease forwards'})}));
+const modal=$('cv-modal'),om=()=>{modal.classList.add('open');document.body.style.overflow='hidden'},cmod=()=>{modal.classList.remove('open');document.body.style.overflow=''};
+$('btn-open-cv-modal').addEventListener('click',om);$('modal-close-btn').addEventListener('click',cmod);$('btn-modal-close-action').addEventListener('click',cmod);
+modal.addEventListener('click',e=>{if(e.target===modal)cmod()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))cmod()});
+$('btn-print-cv').addEventListener('click',()=>print());
+const links=document.querySelectorAll('.nav-link');
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){const id=en.target.id;links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+id))}}),{rootMargin:'-30% 0px -60% 0px'});
+document.querySelectorAll('section[id]').forEach(s=>io.observe(s));
+});
+</script></body></html>

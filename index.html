@@ -56,7 +56,7 @@ ul{list-style:none}img,svg{display:block;max-width:100%}
 .mobile-nav-links{display:flex;flex-direction:column;gap:1rem;margin-bottom:1.5rem}
 .mobile-nav-links a{font-size:1.0625rem;font-weight:500;color:var(--text-primary);padding:.5rem 0}
 
-/* ESTRUTURA ORIGINAL DO HERO: TEXTO À ESQUERDA, FOTO À DIREITA */
+/* ESTRUTURA DO HERO: TEXTO À ESQUERDA, FOTO À DIREITA */
 .hero-section{padding:3.5rem 0 5rem;position:relative;overflow:hidden}
 @media(min-width:1024px){.hero-section{padding:5rem 0 6.5rem}}
 .hero-split{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center}
@@ -262,7 +262,7 @@ ul{list-style:none}img,svg{display:block;max-width:100%}
 </div>
 
 <main>
-<!-- ESTRUTURA ORIGINAL DO HERO: TEXTO À ESQUERDA, FOTO À DIREITA -->
+<!-- ESTRUTURA DO HERO: TEXTO À ESQUERDA, FOTO À DIREITA -->
 <section class="hero-section" id="hero">
   <div class="container">
     <div class="hero-split">
@@ -364,7 +364,7 @@ ul{list-style:none}img,svg{display:block;max-width:100%}
   </div>
 </section>
 
-<!-- SEÇÃO DE PROJETOS E ESTUDOS DE CASO (INCLUSÃO DOS DOIS BOTÕES COM LINKS DIRETOS) -->
+<!-- SEÇÃO DE PROJETOS E ESTUDOS DE CASO -->
 <section class="section" id="projetos">
   <div class="container">
     <div class="section-header">
@@ -379,7 +379,7 @@ ul{list-style:none}img,svg{display:block;max-width:100%}
         <div>
           <span class="project-tag">⭐ Projeto de Destaque • UX/UI Health Care</span>
           <h3 class="project-title">Saúde &amp; Bem-Estar — Plataforma de Gestão Pessoal de Saúde</h3>
-          <p class="project-desc">Solução digital projetada para auxiliar usuários no acompanhamento unificado de ingestão hídrica, rotina de medicamentos, variação de peso corporal e diário de humor. Desenvolvida seguindo o framework <strong>Double Diamond</strong> com entrega de protótipo de alta fidelidade 100% funcional[cite: 82, 87].</p>
+          <p class="project-desc">Solução digital projetada para auxiliar usuários no acompanhamento unificado de ingestão hídrica, rotina de medicamentos, variação de peso corporal e diário de humor. Desenvolvida seguindo o framework <strong>Double Diamond</strong> com entrega de protótipo de alta fidelidade 100% funcional.</p>
           <div class="partner-chips">
             <span class="partner-label">Metodologias e Entregáveis:</span>
             <span class="chip">Double Diamond</span>
@@ -390,15 +390,15 @@ ul{list-style:none}img,svg{display:block;max-width:100%}
           </div>
         </div>
         
-        <!-- OS DOIS CAMPOS/BOTÕES COM REDIRECIONAMENTO DE LINK -->
+        <!-- BOTÕES DA ABA DE PROJETOS -->
         <div class="project-actions">
-          <!-- Campo 1: Acesso ao Estudo de Caso -->
+          <!-- Campo 1: Ver Estudo de Caso -->
           <button class="btn btn-primary" id="btn-open-health-case">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
             <span>Ver Estudo de Caso</span>
           </button>
 
-          <!-- Campo 2: Acesso ao Protótipo Interativo no GitHub Pages -->
+          <!-- Campo 2: Testar Protótipo Vivo -->
           <a href="https://nailsonxavierr.github.io/projeto.saude/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
             <span>Testar Protótipo Vivo ↗</span>
@@ -406,7 +406,7 @@ ul{list-style:none}img,svg{display:block;max-width:100%}
         </div>
       </div>
 
-      <!-- DEMAIS PROJETOS INTACCTOS -->
+      <!-- DEMAIS PROJETOS -->
       <div class="project-card">
         <div>
           <span class="project-tag">Residência Tecnológica</span>
@@ -454,8 +454,15 @@ ul{list-style:none}img,svg{display:block;max-width:100%}
           <div class="grad-meta">Concluído • 2022 – 2024</div>
         </div>
       </div>
+      
+      <!-- ÍCONE ORIGINAL DE IDIOMAS RESTAURADO ABAIXO -->
       <div class="card-boxed">
-        <h3 class="card-boxed-title"><span class="title-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line></svg></span>Idiomas</h3>
+        <h3 class="card-boxed-title">
+          <span class="title-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+          </span>
+          Idiomas
+        </h3>
         <div>
           <div class="lang-item"><span class="lang-name">Português</span><span class="lang-level">Nativo</span></div>
           <div class="lang-item"><span class="lang-name">Inglês</span><span class="lang-level">Intermediário (Comunicação de Negócios)</span></div>
@@ -463,6 +470,7 @@ ul{list-style:none}img,svg{display:block;max-width:100%}
         </div>
       </div>
     </div>
+
     <div class="card-boxed cert-card">
       <h3 class="card-boxed-title"><span class="title-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></span>Certificações &amp; Especializações</h3>
       <div class="cert-columns">
@@ -556,36 +564,36 @@ ul{list-style:none}img,svg{display:block;max-width:100%}
       <button class="modal-close" id="modal-case-close">&times;</button>
     </div>
     <div class="case-study-content" style="font-size:.9375rem;line-height:1.65;color:var(--text-secondary)">
-      <p><strong>Visão Geral:</strong> O aplicativo foi desenvolvido para solucionar a falta de aderência e o esquecimento recorrente em rotinas de cuidados diários com a saúde. Através da metodologia <strong>Double Diamond</strong>, mapeamos dores ligadas à ingestão de água, medicação contínua e registros de peso/humor[cite: 82, 87].</p>
+      <p><strong>Visão Geral:</strong> O aplicativo foi desenvolvido para solucionar a falta de aderência e o esquecimento recorrente em rotinas de cuidados diários com a saúde. Através da metodologia <strong>Double Diamond</strong>, mapeamos dores ligadas à ingestão de água, medicação contínua e registros de peso/humor.</p>
       
       <div class="case-grid">
         <div class="case-box">
           <strong style="color:var(--text-primary);display:block;margin-bottom:.25rem">1. Descobrir</strong>
-          <p style="font-size:.85rem;margin:0">Pesquisa qualitativa, benchmarks com concorrentes do setor e mapeamento do público-alvo[cite: 87].</p>
+          <p style="font-size:.85rem;margin:0">Pesquisa qualitativa, benchmarks com concorrentes do setor e mapeamento do público-alvo.</p>
         </div>
         <div class="case-box">
           <strong style="color:var(--text-primary);display:block;margin-bottom:.25rem">2. Definir</strong>
-          <p style="font-size:.85rem;margin:0">Criação de Personas (Elina, Carlos, Juliana), Jornadas do Usuário, Fluxogramas e Wireframes[cite: 87].</p>
+          <p style="font-size:.85rem;margin:0">Criação de Personas (Elina, Carlos, Juliana), Jornadas do Usuário, Fluxogramas e Wireframes.</p>
         </div>
         <div class="case-box">
           <strong style="color:var(--text-primary);display:block;margin-bottom:.25rem">3. Desenvolver</strong>
-          <p style="font-size:.85rem;margin:0">Identidade Visual, Guia de Estilo (Style Guide) e Tipografia baseada em Poppins[cite: 87].</p>
+          <p style="font-size:.85rem;margin:0">Identidade Visual, Guia de Estilo (Style Guide) e Tipografia baseada em Poppins.</p>
         </div>
         <div class="case-box">
           <strong style="color:var(--text-primary);display:block;margin-bottom:.25rem">4. Entregar</strong>
-          <p style="font-size:.85rem;margin:0">Protótipo de alta fidelidade navegável com microinterações e código testável[cite: 82, 87].</p>
+          <p style="font-size:.85rem;margin:0">Protótipo de alta fidelidade navegável com microinterações e código testável.</p>
         </div>
       </div>
 
       <h4>Personas Mapeadas:</h4>
       <ul>
-        <li><strong>Elina Souza (23 anos):</strong> Deseja acompanhar a ingestão correta de água e suplementação[cite: 85, 87].</li>
-        <li><strong>Carlos Mendes (45 anos):</strong> Necessita de lembretes confiáveis para medicação diária e controle de peso[cite: 87].</li>
-        <li><strong>Juliana Prado (31 anos):</strong> Utiliza o registro diário de humor para acompanhamento de qualidade de vida[cite: 87].</li>
+        <li><strong>Elina Souza (23 anos):</strong> Deseja acompanhar a ingestão correta de água e suplementação.</li>
+        <li><strong>Carlos Mendes (45 anos):</strong> Necessita de lembretes confiáveis para medicação diária e controle de peso.</li>
+        <li><strong>Juliana Prado (31 anos):</strong> Utiliza o registro diário de humor para acompanhamento de qualidade de vida.</li>
       </ul>
 
       <h4>Design System &amp; Tokens Visuais:</h4>
-      <p>Desenvolvido com tipografia <strong>Poppins</strong>[cite: 85, 87] e paleta baseada nas cores da saúde (Verde <code>#97D085</code> e Azul <code>#5B8DEF</code>)[cite: 85], oferecendo suporte para tema claro e escuro[cite: 85].</p>
+      <p>Desenvolvido com tipografia <strong>Poppins</strong> e paleta baseada nas cores da saúde (Verde <code>#97D085</code> e Azul <code>#5B8DEF</code>), oferecendo suporte para tema claro e escuro.</p>
     </div>
     <div style="margin-top:1.5rem;display:flex;gap:.75rem;justify-content:flex-end">
       <button class="btn btn-secondary" id="btn-case-close-action">Fechar Leitura</button>

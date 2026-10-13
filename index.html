@@ -2,653 +2,163 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nailson Xavier — UX/UI & Product Designer</title>
-<meta name="description" content="Portfólio de Nailson Xavier - UX/UI & Product Designer com base em Sistemas para Internet, Growth e Product Management.">
-<meta name="author" content="Nailson Xavier">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portfólio UX/UI · Nailson Xavier</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg-primary:#FAFAFA;--bg-secondary:#FFF;--bg-surface:#F1F3F5;--bg-surface-hover:#E9ECEF;--border-subtle:#E9ECEF;--border-strong:#E2E8F0;--text-primary:#111827;--text-secondary:#4B5563;--text-muted:#6B7280;--text-inverse:#FFF;--accent-dark:#0F172A;--accent-dark-hover:#1E293B;--accent-blue:#2563EB;--accent-emerald:#059669;--accent-emerald-light:#ECFDF5;--font-display:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;--font-body:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;--container-max:1200px;--radius-sm:8px;--radius-md:12px;--radius-lg:16px;--radius-xl:24px;--radius-full:9999px;--shadow-sm:0 1px 2px rgba(0,0,0,.04);--shadow-md:0 4px 20px -2px rgba(15,23,42,.06),0 2px 6px -1px rgba(15,23,42,.04);--shadow-lg:0 20px 25px -5px rgba(15,23,42,.08),0 8px 10px -6px rgba(15,23,42,.03);--transition-fast:150ms ease;--transition-normal:250ms cubic-bezier(.16,1,.3,1);--transition-slow:400ms cubic-bezier(.16,1,.3,1);--blue-tint:rgba(37,99,235,.10);--blue-tint-2:rgba(37,99,235,.17);--blue-ink:#1D4ED8}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px;-webkit-font-smoothing:antialiased}
-body{background:var(--bg-primary);color:var(--text-secondary);font-family:var(--font-body);line-height:1.65;overflow-x:hidden;min-height:100vh}
-h1,h2,h3,h4{color:var(--text-primary);font-family:var(--font-display);font-weight:700;line-height:1.2;letter-spacing:-.02em}
-p{margin-bottom:1rem}p:last-child{margin-bottom:0}
-a{color:inherit;text-decoration:none;transition:color var(--transition-fast)}
-ul{list-style:none}img,svg{display:block;max-width:100%}
-.container{width:100%;max-width:var(--container-max);margin:0 auto;padding:0 1.5rem}
-@media(min-width:768px){.container{padding:0 2rem}}
-.section{padding:5rem 0;position:relative}
-@media(min-width:1024px){.section{padding:6.5rem 0}}
-.section-header{margin-bottom:3.5rem;max-width:680px}
-.section-eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.8125rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--accent-blue);margin-bottom:.75rem}
-.section-title{font-size:clamp(1.85rem,3.5vw,2.5rem);margin-bottom:.875rem}
-.section-subtitle{font-size:1.0625rem;color:var(--text-secondary);line-height:1.6}
-.site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border-subtle);transition:all var(--transition-normal)}
-.site-header.scrolled{background:rgba(255,255,255,.94);box-shadow:0 4px 20px rgba(0,0,0,.03)}
-.nav-wrapper{display:flex;align-items:center;justify-content:space-between;height:4.5rem}
-.logo{display:flex;align-items:center;gap:.75rem;font-family:var(--font-display);font-size:1.125rem;font-weight:700;color:var(--text-primary)}
-.logo-badge{width:8px;height:8px;border-radius:9999px;background:var(--accent-dark)}
-.logo-role{font-size:.8125rem;font-weight:500;color:var(--text-muted);padding-left:.75rem;border-left:1px solid var(--border-subtle);display:none}
-@media(min-width:640px){.logo-role{display:inline-block}}
-.nav-menu{display:none;align-items:center;gap:1.75rem}
-@media(min-width:860px){.nav-menu{display:flex}}
-.nav-link{font-size:.9375rem;font-weight:500;color:var(--text-secondary);position:relative;padding:.5rem 0}
-.nav-link:hover,.nav-link.active{color:var(--text-primary)}
-.nav-link::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--accent-dark);transition:width var(--transition-normal);border-radius:2px}
-.nav-link:hover::after,.nav-link.active::after{width:100%}
-.nav-actions{display:flex;align-items:center;gap:1rem}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.625rem 1.25rem;font-size:.875rem;font-weight:600;border-radius:var(--radius-md);transition:all var(--transition-normal);cursor:pointer;border:1px solid transparent;line-height:1.25;white-space:nowrap;font-family:inherit}
-.btn-primary{background:var(--accent-dark);color:#fff;box-shadow:0 2px 4px rgba(15,23,42,.12)}
-.btn-primary:hover{background:var(--accent-blue);box-shadow:0 4px 12px rgba(37,99,235,.3);color:#fff;transform:translateY(-1px)}
-.btn-secondary{background:var(--bg-secondary);color:var(--text-primary);border-color:var(--border-strong)}
-.btn-secondary:hover{background:var(--blue-tint);border-color:var(--accent-blue);color:var(--blue-ink);transform:translateY(-1px)}
-.btn-ghost{background:transparent;color:var(--text-secondary)}
-.btn-ghost:hover{background:var(--blue-tint);color:var(--blue-ink)}
-.btn-sm{padding:.45rem .875rem;font-size:.8125rem}
-.btn-lg{padding:.875rem 1.75rem;font-size:1rem;border-radius:var(--radius-lg)}
-.mobile-menu-btn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:var(--radius-md);border:1px solid var(--border-subtle);background:var(--bg-secondary);color:var(--text-primary);cursor:pointer}
-@media(min-width:860px){.mobile-menu-btn{display:none}}
-.mobile-nav{position:fixed;top:4.5rem;left:0;width:100%;background:var(--bg-secondary);border-bottom:1px solid var(--border-strong);padding:1.5rem;box-shadow:var(--shadow-lg);transform:translateY(-100%);opacity:0;visibility:hidden;transition:all var(--transition-slow);z-index:99}
-.mobile-nav.open{transform:none;opacity:1;visibility:visible}
-.mobile-nav-links{display:flex;flex-direction:column;gap:1rem;margin-bottom:1.5rem}
-.mobile-nav-links a{font-size:1.0625rem;font-weight:500;color:var(--text-primary);padding:.5rem 0}
+:root{--wine:#7A2B2E;--wineD:#651F23;--gold:#B58A3C;--or:#F5A733;--gr:#4A9A2B;--red:#B71C1C;--g:#8A8383;--ink:#111;--sub:#6f6f6f;--fld:#EFEFEF}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,sans-serif;color:var(--ink);background:#18222d;min-height:100vh;padding:40px 20px;display:flex;justify-content:center;align-items:flex-start}
+#root{width:100%;max-width:1040px}
 
-/* ESTRUTURA DO HERO: TEXTO À ESQUERDA, FOTO À DIREITA */
-.hero-section{padding:3.5rem 0 5rem;position:relative;overflow:hidden}
-@media(min-width:1024px){.hero-section{padding:5rem 0 6.5rem}}
-.hero-split{display:grid;grid-template-columns:1fr;gap:3rem;align-items:center}
-@media(min-width:900px){
-  .hero-split{grid-template-columns:1fr .8fr;gap:4.5rem}
-  .hero-text-col{order:1}
-  .hero-image-col{order:2;display:flex;justify-content:flex-end}
+/* Layout Geral de Projetos */
+.header-portfolio{color:#fff;margin-bottom:28px;text-align:center}
+.header-portfolio h1{font-size:28px;font-weight:700;margin-bottom:8px}
+.header-portfolio p{color:#b0b8c1;font-size:14px}
+
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+
+/* Card do Projeto */
+.card{background:#fff;border-radius:12px;box-shadow:0 12px 40px rgba(0,0,0,.28);overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;transition:transform .2s ease}
+.card:hover{transform:translateY(-4px)}
+
+.card-body{padding:28px}
+.badge{display:inline-block;background:#f3e9e9;color:var(--wine);font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px}
+.card-title{font-size:20px;font-weight:700;color:var(--ink);margin-bottom:10px;line-height:1.3}
+.card-desc{font-size:13px;color:var(--sub);line-height:1.6;margin-bottom:18px}
+
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.tag{background:var(--fld);color:#555;font-size:11px;font-weight:600;padding:4px 8px;border-radius:4px}
+
+/* Ações do Card */
+.card-actions{padding:18px 28px;background:#fcfcfc;border-top:1px solid #eee;display:flex;gap:12px;align-items:center}
+.btn-primary{flex:1;background:var(--wine);color:#fff;text-decoration:none;text-align:center;padding:10px 16px;border-radius:6px;font-size:12px;font-weight:700;transition:background .2s;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.btn-primary:hover{background:var(--wineD)}
+.btn-secondary{background:none;border:1px solid #ccc;color:#444;padding:9px 14px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}
+.btn-secondary:hover{background:#f1f1f1;border-color:#bbb}
+
+/* Modal / Estudo de Caso */
+.modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);display:none;justify-content:center;align-items:center;z-index:1000;padding:20px}
+.modal-overlay.active{display:flex}
+.modal-content{background:#fff;border-radius:12px;width:100%;max-width:800px;max-height:90vh;overflow-y:auto;padding:36px;position:relative;box-shadow:0 20px 50px rgba(0,0,0,0.3)}
+.modal-close{position:absolute;top:20px;right:20px;background:none;border:0;font-size:24px;cursor:pointer;color:var(--sub)}
+
+.case-section{margin-bottom:24px}
+.case-section h3{font-size:16px;font-weight:700;color:var(--wine);margin-bottom:8px;border-bottom:2px solid #f3e9e9;padding-bottom:4px}
+.case-section p, .case-section li{font-size:13px;color:#444;line-height:1.6}
+.case-section ul{padding-left:18px}
+
+@media (max-width:640px){
+  body{padding:20px 12px}
+  .card-body{padding:20px}
+  .card-actions{padding:14px 20px}
+  .modal-content{padding:24px}
 }
-.hero-portrait-wrap{position:relative;width:280px;height:340px}
-@media(min-width:640px){.hero-portrait-wrap{width:340px;height:420px}}
-@media(min-width:1024px){.hero-portrait-wrap{width:380px;height:460px}}
-.hero-portrait-wrap::before{content:'';position:absolute;top:12px;left:12px;right:-12px;bottom:-12px;border-radius:var(--radius-xl);border:2px solid var(--border-subtle);z-index:0;transition:all var(--transition-normal)}
-.hero-portrait-wrap:hover::before{top:8px;left:8px;right:-8px;bottom:-8px;border-color:var(--accent-blue)}
-.hero-portrait{position:relative;width:100%;height:100%;border-radius:var(--radius-xl);overflow:hidden;z-index:1;background:linear-gradient(145deg,#E2E8F0,#CBD5E1 50%,#94A3B8);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-lg);transition:transform var(--transition-normal)}
-.hero-portrait-wrap:hover .hero-portrait{transform:translateY(-4px)}
-.hero-portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.avatar-initials{font-family:var(--font-display);font-size:5rem;font-weight:800;color:rgba(255,255,255,.7);letter-spacing:.05em;user-select:none}
-.hero-greeting{font-size:1rem;font-weight:600;color:var(--accent-blue);margin-bottom:.625rem;display:flex;align-items:center;gap:.5rem}
-.status-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent-emerald-light);border:1px solid rgba(5,150,105,.2);color:#065f46;font-size:.8125rem;font-weight:600;padding:.35rem .95rem;border-radius:9999px;margin-bottom:1.25rem}
-.status-dot{width:8px;height:8px;border-radius:50%;background:var(--accent-emerald);position:relative}
-.status-dot::after{content:'';position:absolute;top:-2px;left:-2px;width:12px;height:12px;border-radius:50%;background:var(--accent-emerald);opacity:.4;animation:pulse 2s infinite ease-out}
-@keyframes pulse{0%{transform:scale(.9);opacity:.8}50%{transform:scale(1.6);opacity:0}100%{transform:scale(.9);opacity:0}}
-.hero-title{font-size:clamp(2.25rem,4.8vw,3.25rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:1.25rem}
-.hero-accent{background:linear-gradient(135deg,var(--accent-blue),var(--accent-emerald));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero-bio{font-size:1.0625rem;line-height:1.7;margin-bottom:1.75rem}
-.hero-bio strong{color:var(--text-primary);font-weight:600}
-.hero-tags{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-bottom:2rem}
-.hero-tag{display:inline-flex;align-items:center;gap:.4rem;font-size:.8125rem;font-weight:500;color:var(--text-primary);background:var(--blue-tint);border:1px solid rgba(37,99,235,.18);padding:.3rem .75rem;border-radius:9999px}
-.hero-actions{display:flex;flex-wrap:nowrap;gap:clamp(.4rem,1.2vw,1rem);margin-bottom:3rem}
-.hero-actions .btn-lg{flex:0 1 auto;min-width:0;font-size:clamp(.78rem,1.5vw,1rem);padding:.85rem clamp(.65rem,1.7vw,1.6rem);gap:.4rem}
-@media(max-width:479px){.hero-actions .btn-lg svg{display:none}.hero-actions .btn-lg{padding:.8rem .55rem}}
-.hero-metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;padding-top:2.5rem;border-top:1px solid var(--border-subtle)}
-@media(min-width:640px){.hero-metrics{grid-template-columns:repeat(4,1fr)}}
-.metric-item{display:flex;flex-direction:column}
-.metric-value{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--text-primary);letter-spacing:-.02em}
-.metric-label{font-size:.8125rem;color:var(--text-muted);margin-top:.25rem;line-height:1.4}
-
-.about-grid{display:grid;grid-template-columns:1fr;gap:3rem;align-items:start}
-@media(min-width:900px){.about-grid{grid-template-columns:1.2fr 1fr;gap:4rem}}
-.editorial-lead{font-size:1.25rem;line-height:1.7;color:var(--text-primary);margin-bottom:1.5rem}
-.editorial-body{line-height:1.75}
-.pillars-grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
-@media(min-width:540px){.pillars-grid{grid-template-columns:repeat(2,1fr)}}
-.pillar-card{background:var(--bg-secondary);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:1.5rem;transition:all var(--transition-normal)}
-.pillar-card:hover{border-color:var(--border-strong);transform:translateY(-2px);box-shadow:var(--shadow-sm)}
-.pillar-icon,.skill-icon-badge{border-radius:var(--radius-md);background:var(--blue-tint);display:flex;align-items:center;justify-content:center;color:var(--accent-blue)}
-.pillar-icon{width:40px;height:40px;margin-bottom:1rem}
-.pillar-title{font-size:1rem;font-weight:600;margin-bottom:.35rem}
-.pillar-desc{font-size:.875rem;color:var(--text-muted);line-height:1.5}
-.skills-filter-nav{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2rem}
-.filter-btn{padding:.45rem 1rem;font-size:.8125rem;font-weight:500;font-family:inherit;border-radius:9999px;background:var(--bg-secondary);border:1px solid var(--border-subtle);color:var(--text-secondary);cursor:pointer;transition:all var(--transition-fast)}
-.filter-btn:hover{border-color:var(--accent-blue);color:var(--blue-ink);background:var(--blue-tint)}
-.filter-btn.active,.filter-btn.active:hover{background:var(--accent-blue);border-color:var(--accent-blue);color:#fff}
-.skills-grid{display:grid;grid-template-columns:1fr;gap:1.5rem}
-@media(min-width:640px){.skills-grid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1024px){.skills-grid{grid-template-columns:repeat(3,1fr)}}
-.skill-card{background:var(--bg-secondary);border:1px solid var(--border-subtle);border-radius:var(--radius-xl);padding:2rem;transition:all var(--transition-normal);display:flex;flex-direction:column}
-.skill-card:hover{border-color:#cbd5e1;transform:translateY(-3px);box-shadow:var(--shadow-md)}
-.skill-card-header{display:flex;align-items:center;gap:.875rem;margin-bottom:1.25rem}
-.skill-icon-badge{width:44px;height:44px;color:var(--accent-blue)}
-.skill-category-title{font-size:1.125rem;font-weight:600}
-.skill-desc{font-size:.875rem;color:var(--text-muted);margin-bottom:1.25rem}
-.skill-chips,.partner-chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:auto}
-.chip{background:var(--blue-tint);color:var(--blue-ink);font-size:.8125rem;font-weight:500;padding:.35rem .75rem;border-radius:9999px;display:inline-flex;align-items:center;gap:.35rem;transition:all var(--transition-fast)}
-.chip:hover{background:var(--blue-tint-2);color:var(--blue-ink)}
-.timeline{position:relative;max-width:880px}
-.timeline::before{content:'';position:absolute;top:1.5rem;bottom:2rem;left:19px;width:2px;background:var(--border-subtle)}
-.timeline-item{position:relative;padding-left:3.5rem;margin-bottom:2.5rem}.timeline-item:last-child{margin-bottom:0}
-.timeline-dot{position:absolute;top:1.25rem;left:12px;width:16px;height:16px;border-radius:50%;background:var(--bg-secondary);border:3px solid var(--accent-dark);z-index:2;transition:transform var(--transition-normal)}
-.timeline-item:first-child .timeline-dot{border-color:var(--accent-blue);box-shadow:0 0 0 4px rgba(37,99,235,.15)}
-.timeline-item:hover .timeline-dot{transform:scale(1.25)}
-.timeline-card{background:var(--bg-secondary);border:1px solid var(--border-subtle);border-radius:var(--radius-xl);padding:2rem;transition:all var(--transition-normal)}
-.timeline-card:hover{border-color:#cbd5e1;transform:translateY(-2px);box-shadow:var(--shadow-md)}
-.timeline-header{display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.25rem}
-@media(min-width:640px){.timeline-header{flex-direction:row;justify-content:space-between;align-items:baseline}}
-.role-title{font-size:1.25rem}
-.company-name{font-size:1rem;font-weight:500;color:var(--accent-blue)}
-.timeline-badge{display:inline-flex;font-size:.8125rem;font-weight:600;color:var(--blue-ink);background:var(--blue-tint);padding:.25rem .75rem;border-radius:9999px;width:fit-content}
-.timeline-tasks{display:flex;flex-direction:column;gap:.625rem}
-.timeline-task{display:flex;align-items:flex-start;gap:.75rem;font-size:.9375rem;line-height:1.55}
-.task-bullet{width:6px;height:6px;border-radius:50%;background:var(--text-muted);margin-top:.55rem;flex-shrink:0}
-
-/* ESTILO DA SEÇÃO DE PROJETOS */
-.projects-grid{display:grid;grid-template-columns:1fr;gap:1.75rem}
-@media(min-width:768px){.projects-grid{grid-template-columns:repeat(2,1fr)}}
-.project-card{background:var(--bg-secondary);border:1px solid var(--border-subtle);border-radius:var(--radius-xl);padding:2.25rem;transition:all var(--transition-normal);display:flex;flex-direction:column;justify-content:space-between}
-.project-card:hover{border-color:#cbd5e1;transform:translateY(-3px);box-shadow:var(--shadow-md)}
-.project-card.featured-project{grid-column:1 / -1;background:linear-gradient(145deg,#FFFFFF,#F8FAFC);border:1.5px solid var(--accent-blue);box-shadow:var(--shadow-md)}
-.project-tag{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--accent-blue);margin-bottom:.75rem;display:block}
-.project-title{font-size:1.35rem;margin-bottom:.75rem}
-.project-desc{font-size:.9375rem;line-height:1.6;margin-bottom:1.5rem}
-.partner-chips{padding-top:1.25rem;border-top:1px solid var(--border-subtle)}
-.partner-label{font-size:.75rem;color:var(--text-muted);width:100%;font-weight:500}
-.project-actions{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.25rem}
-
-.edu-grid{display:grid;grid-template-columns:1fr;gap:2rem;margin-bottom:2rem}
-@media(min-width:900px){.edu-grid{grid-template-columns:1fr 1fr}}
-.card-boxed{background:var(--bg-secondary);border:1px solid var(--border-subtle);border-radius:var(--radius-xl);padding:2.25rem}
-.card-boxed-title{font-size:1.25rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem}
-.title-icon{width:40px;height:40px;border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;background:var(--blue-tint);color:var(--accent-blue)}
-.grad-item{padding-bottom:1.5rem;margin-bottom:1.5rem;border-bottom:1px solid var(--border-subtle)}
-.grad-title{font-size:1.125rem;font-weight:600;color:var(--text-primary)}
-.grad-inst{font-size:.9375rem;color:var(--accent-blue);font-weight:500;margin-top:.15rem}
-.grad-meta{font-size:.8125rem;color:var(--text-muted);margin-top:.25rem}
-.cert-columns{display:grid;grid-template-columns:1fr;gap:1rem}
-@media(min-width:760px){.cert-columns{grid-template-columns:1fr 1fr;gap:1.5rem}}
-.cert-list{display:flex;flex-direction:column;gap:1rem}
-.cert-item{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem;padding:.75rem 1rem;background:var(--bg-primary);border:1px solid var(--border-subtle);border-radius:var(--radius-md);transition:background var(--transition-fast)}
-.cert-item:hover{background:var(--bg-surface)}
-.cert-name{font-size:.9375rem;font-weight:600;color:var(--text-primary)}
-.cert-org{font-size:.8125rem;color:var(--text-muted);font-weight:500}
-.cert-tag{font-size:.75rem;font-weight:600;padding:.25rem .7rem;border-radius:9999px;white-space:nowrap;flex-shrink:0;background:var(--blue-tint);color:var(--blue-ink)}
-.lang-item{display:flex;justify-content:space-between;align-items:center;gap:.75rem;padding:.75rem 0;border-bottom:1px solid var(--border-subtle)}.lang-item:last-child{border:0}
-.lang-name{font-weight:600;font-size:.9375rem;color:var(--text-primary)}
-.lang-level{font-size:.8125rem;color:var(--blue-ink);background:var(--blue-tint);padding:.2rem .65rem;border-radius:9999px}
-
-.contact-card{background:linear-gradient(145deg,#111827,#0F172A);border-radius:var(--radius-xl);padding:3rem 1.25rem;color:#fff;position:relative;overflow:hidden}
-@media(min-width:768px){.contact-card{padding:4.5rem}}
-.contact-header{max-width:640px;margin-bottom:2.75rem;position:relative;z-index:1}
-.contact-header h2{color:#fff;font-size:clamp(2rem,4vw,2.75rem);margin-bottom:1rem}
-.contact-header p{color:#94A3B8;font-size:1.125rem}
-.contact-grid{display:grid;grid-template-columns:1fr;gap:1.25rem;margin-bottom:3rem;position:relative;z-index:1}
-@media(min-width:1024px){.contact-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.contact-method{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius-lg);padding:1.5rem;transition:all var(--transition-normal);display:flex;flex-direction:column;justify-content:space-between;min-height:9.5rem}
-.contact-method:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);transform:translateY(-2px)}
-.method-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:#94A3B8;margin-bottom:.5rem;display:block}
-.method-val{font-size:clamp(.78rem,3.7vw,.9375rem);font-weight:600;color:#fff}
-.method-action{margin-top:1rem;display:inline-flex;align-items:center;gap:.35rem;font-size:.8125rem;color:#60A5FA;font-weight:500}
-.method-action:hover{color:#93C5FD}
-.site-footer{padding:3rem 0;border-top:1px solid var(--border-subtle);margin-top:4rem;font-size:.875rem;color:var(--text-muted)}
-.footer-content{display:flex;flex-direction:column;gap:1.25rem;align-items:center;justify-content:space-between}
-@media(min-width:640px){.footer-content{flex-direction:row}}
-.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}.footer-links a:hover{color:var(--text-primary)}
-.toast{position:fixed;bottom:2rem;right:2rem;background:var(--accent-dark);color:#fff;padding:.875rem 1.25rem;border-radius:var(--radius-md);box-shadow:var(--shadow-lg);font-size:.875rem;font-weight:500;display:flex;align-items:center;gap:.625rem;opacity:0;transform:translateY(1rem);pointer-events:none;transition:all var(--transition-normal);z-index:1000}
-.toast.show{opacity:1;transform:none;pointer-events:auto}
-.back-to-top{position:fixed;bottom:2rem;left:2rem;width:44px;height:44px;border-radius:50%;background:var(--bg-secondary);border:1px solid var(--border-strong);color:var(--text-primary);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-md);cursor:pointer;opacity:0;visibility:hidden;transform:translateY(10px);transition:all var(--transition-normal);z-index:90}
-.back-to-top.visible{opacity:1;visibility:visible;transform:none}
-
-/* MODAIS DE SUPORTE */
-.modal-overlay{position:fixed;inset:0;background:rgba(15,23,42,.6);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;z-index:200;padding:1.5rem;opacity:0;visibility:hidden;transition:all var(--transition-normal)}
-.modal-overlay.open{opacity:1;visibility:visible}
-.modal-card{background:var(--bg-secondary);border-radius:var(--radius-xl);max-width:600px;width:100%;padding:2.25rem;box-shadow:var(--shadow-lg);transform:scale(.95);transition:transform var(--transition-normal);max-height:90vh;overflow-y:auto}
-.modal-card.modal-lg{max-width:900px}
-.modal-overlay.open .modal-card{transform:none}
-.modal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem}
-.modal-close{background:none;border:0;font-size:1.5rem;cursor:pointer;color:var(--text-muted);padding:.25rem}
-.modal-close:hover{color:var(--text-primary)}
-.alt-sec{background:var(--bg-secondary);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)}
-
-.case-study-content h4{font-size:1.1rem;margin:1.5rem 0 .5rem;color:var(--accent-blue)}
-.case-study-content ul{list-style:disc;padding-left:1.25rem;margin-bottom:1rem}
-.case-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:1rem 0}
-.case-box{background:var(--bg-surface);padding:1rem;border-radius:var(--radius-md);border:1px solid var(--border-subtle)}
-
-:focus-visible{outline:2px solid var(--accent-blue);outline-offset:2px}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 
-<header class="site-header" id="header">
-  <div class="container">
-    <div class="nav-wrapper">
-      <a href="#hero" class="logo" aria-label="Nailson Xavier Home">
-        <span class="logo-badge"></span>
-        <span>Nailson Xavier</span>
-        <span class="logo-role">UX/UI &amp; Product</span>
-      </a>
-      <nav class="nav-menu" aria-label="Navegação Principal">
-        <a href="#sobre" class="nav-link">Sobre</a>
-        <a href="#habilidades" class="nav-link">Habilidades</a>
-        <a href="#experiencia" class="nav-link">Experiência</a>
-        <a href="#projetos" class="nav-link">Projetos &amp; Cases</a>
-        <a href="#formacao" class="nav-link">Formação</a>
-        <a href="#contato" class="nav-link">Contato</a>
-      </nav>
-      <div class="nav-actions">
-        <a href="https://wa.me/5581973385349" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-          <span>Fale Comigo</span>
+<div id="root">
+  <header class="header-portfolio">
+    <h1>Projetos & Estudos de Caso UX/UI</h1>
+    <p>Confira os projetos desenvolvidos com foco em usabilidade, acessibilidade e experiência do usuário.</p>
+  </header>
+
+  <main class="projects-grid">
+    
+    <!-- CARD DO PROJETO: AGENDAMENTO UNICAP -->
+    <article class="card">
+      <div class="card-body">
+        <span class="badge">Estudo de Caso & UX/UI</span>
+        <h2 class="card-title">Agendamento de Laboratórios · UNICAP</h2>
+        <p class="card-desc">
+          Otimização e digitalização do sistema de agendamento e gestão dos laboratórios acadêmicos da Universidade Católica de Pernambuco (UNICAP), focando na usabilidade de alunos, professores e administradores.
+        </p>
+        <div class="tags">
+          <span class="tag">Design System</span>
+          <span class="tag">UX Research</span>
+          <span class="tag">Protótipo Navegável</span>
+          <span class="tag">Acessibilidade</span>
+        </div>
+      </div>
+      <div class="card-actions">
+        <!-- BOTÃO PARA O PROTÓTIPO NAVEGÁVEL EXTERNO -->
+        <a href="https://nailsonxavierr.github.io/projeto.agendamento.laboratorio/" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          <span>🚀 Protótipo Navegável</span>
         </a>
-        <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Abrir Menu" aria-expanded="false">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-        </button>
+        <button class="btn-secondary" onclick="openModal('modal-unicap')">Estudo de Caso</button>
       </div>
-    </div>
-  </div>
-</header>
+    </article>
 
-<div class="mobile-nav" id="mobile-nav">
-  <div class="mobile-nav-links">
-    <a href="#sobre" class="mobile-nav-link">Sobre</a>
-    <a href="#habilidades" class="mobile-nav-link">Habilidades</a>
-    <a href="#experiencia" class="mobile-nav-link">Experiência</a>
-    <a href="#projetos" class="mobile-nav-link">Projetos &amp; Cases</a>
-    <a href="#formacao" class="mobile-nav-link">Formação &amp; Certificações</a>
-    <a href="#contato" class="mobile-nav-link">Contato</a>
-  </div>
-  <div style="display:flex;gap:.75rem;flex-direction:column">
-    <a href="https://wa.me/5581973385349" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width:100%">WhatsApp Direto</a>
-    <a href="mailto:nailson.xavier@outlook.com" class="btn btn-secondary" style="width:100%">Enviar E-mail</a>
-  </div>
+  </main>
 </div>
 
-<main>
-<!-- ESTRUTURA DO HERO: TEXTO À ESQUERDA, FOTO À DIREITA -->
-<section class="hero-section" id="hero">
-  <div class="container">
-    <div class="hero-split">
-      <div class="hero-text-col">
-        <div class="hero-greeting"><span>👋</span><span>Olá, prazer! Eu sou</span></div>
-        <h1 class="hero-title">Nailson Xavier<br><span class="hero-accent">UX/UI &amp; Product Designer</span></h1>
-        <p class="hero-bio">Sou formado em <strong>Sistemas para Internet pela UNICAP</strong> e venho aprofundando minha visão estratégica com formações em <strong>Product Management</strong> e <strong>Design de Produtos Digitais</strong> (EBAC e CESAR School). Atuo na intersecção entre a resolução de dores do usuário, experimentação com testes A/B e viabilidade técnica, colaborando com times multidisciplinares e internacionais.</p>
-        <div class="hero-tags">
-          <span class="hero-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg> Recife - PE, Brasil</span>
-          <span class="hero-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg> Remoto / Híbrido</span>
-        </div>
-        <div class="status-badge"><span class="status-dot"></span><span>Disponível para novos desafios em UX/UI &amp; Produto</span></div>
-        <div class="hero-actions">
-          <a href="#projetos" class="btn btn-primary btn-lg"><span>Ver Projetos</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
-          <button class="btn btn-secondary btn-lg" id="btn-open-cv-modal"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg><span>Resumo / CV</span></button>
-          <a href="#contato" class="btn btn-ghost btn-lg"><span>Fale Comigo</span></a>
-        </div>
-      </div>
-      <div class="hero-image-col">
-        <div class="hero-portrait-wrap">
-          <div class="hero-portrait">
-            <span class="avatar-initials" aria-hidden="true">NX</span>
-            <img src="foto-nailson.jpg" alt="Foto de Nailson Xavier — UX/UI &amp; Product Designer" onerror="this.remove()">
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="hero-metrics">
-      <div class="metric-item"><span class="metric-value">3+ anos</span><span class="metric-label">de vivência em tecnologia &amp; marketing</span></div>
-      <div class="metric-item"><span class="metric-value">UNICAP</span><span class="metric-label">Graduado em Sistemas para Internet</span></div>
-      <div class="metric-item"><span class="metric-value">Data &amp; CRO</span><span class="metric-label">Testes A/B &amp; usabilidade analítica</span></div>
-      <div class="metric-item"><span class="metric-value">Global</span><span class="metric-label">Comunicação e alinhamento em inglês</span></div>
-    </div>
-  </div>
-</section>
+<!-- MODAL ESTUDO DE CASO: AGENDAMENTO UNICAP -->
+<div class="modal-overlay" id="modal-unicap">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal('modal-unicap')">&times;</button>
+    
+    <span class="badge">UX Case Study</span>
+    <h2 style="font-size: 24px; font-weight: 700; margin-bottom: 16px; color: var(--ink);">
+      Sistema de Agendamento e Reserva de Laboratórios de Informática
+    </h2>
 
-<section class="section alt-sec" id="sobre">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Perfil Estratégico</span>
-      <h2 class="section-title">Sobre Mim</h2>
-    </div>
-    <div class="about-grid">
-      <div>
-        <p class="editorial-lead">Sou formado em <strong>Sistemas para Internet pela UNICAP</strong> e venho aprofundando minha visão estratégica com formações em <strong>Product Management</strong> e <strong>Design de Produtos Digitais</strong> (EBAC e CESAR School).</p>
-        <p class="editorial-body">Atuo na intersecção entre a <strong>resolução de dores reais do usuário</strong>, <strong>experimentação com testes A/B</strong> e <strong>viabilidade técnica</strong>, colaborando estreitamente com times multidisciplinares e internacionais. Minha bagagem em tecnologia permite dialogar com equipes de engenharia de software, enquanto o foco em CRO e Growth assegura que cada decisão de design gere ponte mensurável com os objetivos do negócio.</p>
-        <div class="meta-line" style="display:flex;gap:.75rem;align-items:center;margin-top:1.25rem;font-size:.875rem;color:var(--text-muted)">
-          <span>Recife - PE, Brasil</span>
-          <span>•</span>
-          <span>Disponível Remoto / Híbrido</span>
-        </div>
-      </div>
-      <div class="pillars-grid">
-        <div class="pillar-card"><div class="pillar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg></div><h3 class="pillar-title">Design Centrado no Usuário</h3><p class="pillar-desc">Criação de fluxos sem fricção, wireframes de alta fidelidade e design systems consistentes no Figma.</p></div>
-        <div class="pillar-card"><div class="pillar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></div><h3 class="pillar-title">Orientado a Dados &amp; CRO</h3><p class="pillar-desc">Otimização de taxas de conversão (CTR, retenção, ativação) por meio de testes A/B e ferramentas analíticas.</p></div>
-        <div class="pillar-card"><div class="pillar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div><h3 class="pillar-title">Fundação Técnica</h3><p class="pillar-desc">Conhecimento real de HTML, CSS, WordPress e arquitetura web, facilitando a ponte produtiva com times de dev.</p></div>
-        <div class="pillar-card"><div class="pillar-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div><h3 class="pillar-title">Alinhamento Global</h3><p class="pillar-desc">Experiência direta com stakeholders e lideranças globais em squads ágeis com comunicação em inglês.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="habilidades">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> Competências Técnicas</span>
-      <h2 class="section-title">Habilidades &amp; Ferramental</h2>
-      <p class="section-subtitle">Combinação estratégica de design de produto, métodos analíticos, engenharia de software e inteligência artificial aplicada.</p>
-    </div>
-    <div class="skills-filter-nav">
-      <button class="filter-btn active" data-filter="all">Todas as Áreas</button>
-      <button class="filter-btn" data-filter="design">Design &amp; UX/UI</button>
-      <button class="filter-btn" data-filter="cro">Pesquisa &amp; Dados (CRO)</button>
-      <button class="filter-btn" data-filter="tech">Tecnologia &amp; Web</button>
-      <button class="filter-btn" data-filter="business">Negócios &amp; Gestão</button>
-      <button class="filter-btn" data-filter="ai">Inteligência Artificial</button>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-card" data-category="design"><div class="skill-card-header"><div class="skill-icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path><path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path><path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path><path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path><path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path></svg></div><h3 class="skill-category-title">Design &amp; UX/UI</h3></div><p class="skill-desc">Concepção visual, arquitetura da informação e sistemas de design escaláveis.</p><div class="skill-chips"><span class="chip">Figma</span><span class="chip">FigJam</span><span class="chip">Prototipação Rápida</span><span class="chip">Design Systems</span><span class="chip">Wireframes</span><span class="chip">Adobe Suite</span></div></div>
-      <div class="skill-card" data-category="cro"><div class="skill-card-header"><div class="skill-icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg></div><h3 class="skill-category-title">Pesquisa, CRO &amp; Dados</h3></div><p class="skill-desc">Validação analítica de comportamento, mapas de calor e funis de conversão.</p><div class="skill-chips"><span class="chip">Testes A/B</span><span class="chip">Microsoft Clarity</span><span class="chip">Hotjar</span><span class="chip">Google Analytics</span><span class="chip">Métricas (CTR, Churn)</span></div></div>
-      <div class="skill-card" data-category="tech"><div class="skill-card-header"><div class="skill-icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div><h3 class="skill-category-title">Tecnologia &amp; Web</h3></div><p class="skill-desc">Base acadêmica em desenvolvimento front-end e arquitetura para a internet.</p><div class="skill-chips"><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">WordPress</span><span class="chip">Python</span><span class="chip">Engenharia de Software</span></div></div>
-      <div class="skill-card" data-category="business"><div class="skill-card-header"><div class="skill-icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg></div><h3 class="skill-category-title">Negócios &amp; Metodologias</h3></div><p class="skill-desc">Gestão ágil, estratégia de produto e comunicação com stakeholders.</p><div class="skill-chips"><span class="chip">Scrum</span><span class="chip">Kanban</span><span class="chip">Jira</span><span class="chip">Notion</span><span class="chip">Estratégia de Growth</span></div></div>
-      <div class="skill-card" data-category="ai"><div class="skill-card-header"><div class="skill-icon-badge"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10H12V2z"></path><circle cx="12" cy="12" r="2"></circle></svg></div><h3 class="skill-category-title">Inteligência Artificial</h3></div><p class="skill-desc">Aceleração de fluxos de trabalho de UI/UX e automação de hipóteses com IA.</p><div class="skill-chips"><span class="chip">Prompt Engineering</span><span class="chip">ChatGPT</span><span class="chip">Claude</span><span class="chip">Figma AI</span></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="section alt-sec" id="experiencia">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg> Carreira</span>
-      <h2 class="section-title">Experiência Profissional</h2>
-    </div>
-    <div class="timeline">
-      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-header"><div><h3 class="role-title">Analista Growth Marketing - Junior</h3><div class="company-name">UMANA Brasil (Multinacional Italiana)</div></div><div class="timeline-badge">Agosto 2026 – Atualmente</div></div><div class="timeline-tasks"><div class="timeline-task"><span class="task-bullet"></span><span>Estruturação dos canais e materiais institucionais para a operação brasileira da multinacional italiana.</span></div><div class="timeline-task"><span class="task-bullet"></span><span>Alinhamento direto em inglês com a liderança e time global de marketing na Itália.</span></div><div class="timeline-task"><span class="task-bullet"></span><span>Otimização de jornadas de navegação e landing pages com foco em usabilidade e redução de atrito.</span></div><div class="timeline-task"><span class="task-bullet"></span><span>Execução de testes A/B e acompanhamento sistemático de métricas analíticas.</span></div></div></div></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-header"><div><h3 class="role-title">Marketing e Brand Designer</h3><div class="company-name">WR Formaturas</div></div><div class="timeline-badge">Julho 2025 – Março 2026</div></div><div class="timeline-tasks"><div class="timeline-task"><span class="task-bullet"></span><span>Condução de projetos de comunicação, hierarquia visual e identidade de marca.</span></div><div class="timeline-task"><span class="task-bullet"></span><span>Alinhamento de escopos, briefings e expectativas diretamente com clientes.</span></div></div></div></div>
-      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-card"><div class="timeline-header"><div><h3 class="role-title">Assistente de Marketing &amp; Estagiário</h3><div class="company-name">Franquia Ortoestética</div></div><div class="timeline-badge">Novembro 2023 – Maio 2025</div></div><div class="timeline-tasks"><div class="timeline-task"><span class="task-bullet"></span><span>Execução de testes de campanhas e pesquisas aprofundadas de mercado.</span></div><div class="timeline-task"><span class="task-bullet"></span><span>Criação de interfaces promocionais e materiais institucionais.</span></div></div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- SEÇÃO DE PROJETOS E ESTUDOS DE CASO -->
-<section class="section" id="projetos">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg> Portfólio de UX/UI &amp; Ecossistema</span>
-      <h2 class="section-title">Projetos &amp; Estudos de Caso</h2>
-      <p class="section-subtitle">Soluções completas com foco em pesquisa de usuário, arquitetura de informação, prototipação e viabilidade técnica.</p>
+    <div class="case-section">
+      <h3>1. Descobrir (Research & Imersão)</h3>
+      <p>
+        Pesquisa qualitativa focada no entendimento dos gargalos do processo atual de reserva através de entrevistas com a administradora dos laboratórios, professores e estudantes, além do mapeamento do processo manual existente.
+      </p>
     </div>
 
-    <div class="projects-grid">
-      <!-- PROJETO DE DESTAQUE: SAÚDE & BEM-ESTAR -->
-      <div class="project-card featured-project">
-        <div>
-          <span class="project-tag">⭐ Projeto de Destaque • UX/UI Health Care</span>
-          <h3 class="project-title">Saúde &amp; Bem-Estar — Plataforma de Gestão Pessoal de Saúde</h3>
-          <p class="project-desc">Solução digital projetada para auxiliar usuários no acompanhamento unificado de ingestão hídrica, rotina de medicamentos, variação de peso corporal e diário de humor. Desenvolvida seguindo o framework <strong>Double Diamond</strong> com entrega de protótipo de alta fidelidade 100% funcional.</p>
-          <div class="partner-chips">
-            <span class="partner-label">Metodologias e Entregáveis:</span>
-            <span class="chip">Double Diamond</span>
-            <span class="chip">Pesquisa de Usuário</span>
-            <span class="chip">Personas &amp; Jornada</span>
-            <span class="chip">Design System (Poppins)</span>
-            <span class="chip">Protótipo Funcional (HTML/JS)</span>
-          </div>
-        </div>
-        
-        <!-- BOTÕES DA ABA DE PROJETOS -->
-        <div class="project-actions">
-          <!-- Campo 1: Ver Estudo de Caso -->
-          <button class="btn btn-primary" id="btn-open-health-case">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
-            <span>Ver Estudo de Caso</span>
-          </button>
-
-          <!-- Campo 2: Testar Protótipo Vivo -->
-          <a href="https://nailsonxavierr.github.io/projeto.saude/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
-            <span>Testar Protótipo Vivo ↗</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- DEMAIS PROJETOS -->
-      <div class="project-card">
-        <div>
-          <span class="project-tag">Residência Tecnológica</span>
-          <h3 class="project-title">Porto Digital (Onboard / Embarque Digital)</h3>
-          <p class="project-desc">Criação de soluções de tecnologia e produtos digitais aplicados a cenários reais de mercado, desenhados em imersão com gigantes do setor tecnológico.</p>
-        </div>
-        <div class="partner-chips">
-          <span class="partner-label">Parceiros e Empresas Envolvidas:</span>
-          <span class="chip">Accenture</span>
-          <span class="chip">NTT Data</span>
-          <span class="chip">CMTech</span>
-          <span class="chip">Porto Digital</span>
-        </div>
-      </div>
-
-      <div class="project-card">
-        <div>
-          <span class="project-tag">Comunidade &amp; Liderança</span>
-          <h3 class="project-title">Palestrante &amp; Mentor de Talentos em TI</h3>
-          <p class="project-desc">Mentoria prática para talentos ingressantes na área de tecnologia, além de condução de palestras e workshops sobre design de interfaces e transição profissional.</p>
-        </div>
-        <div class="partner-chips">
-          <span class="partner-label">Eventos &amp; Destaque:</span>
-          <span class="chip">Rec'n'Play</span>
-          <span class="chip">Semana da Computação UNICAP</span>
-          <span class="chip">Mentorias Comunitárias</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section alt-sec" id="formacao">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"></path><path d="M6 12v5c3 3 9 3 12 0v-5"></path></svg> Background Acadêmico</span>
-      <h2 class="section-title">Educação &amp; Certificações</h2>
-    </div>
-    <div class="edu-grid">
-      <div class="card-boxed">
-        <h3 class="card-boxed-title"><span class="title-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg></span>Graduação</h3>
-        <div class="grad-item">
-          <div class="grad-title">Tecnólogo em Sistemas para Internet</div>
-          <div class="grad-inst">Universidade Católica de Pernambuco (UNICAP)</div>
-          <div class="grad-meta">Concluído • 2022 – 2024</div>
-        </div>
-      </div>
-      
-      <!-- ÍCONE ORIGINAL DE IDIOMAS RESTAURADO ABAIXO -->
-      <div class="card-boxed">
-        <h3 class="card-boxed-title">
-          <span class="title-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-          </span>
-          Idiomas
-        </h3>
-        <div>
-          <div class="lang-item"><span class="lang-name">Português</span><span class="lang-level">Nativo</span></div>
-          <div class="lang-item"><span class="lang-name">Inglês</span><span class="lang-level">Intermediário (Comunicação de Negócios)</span></div>
-          <div class="lang-item"><span class="lang-name">Espanhol</span><span class="lang-level">Básico</span></div>
-        </div>
-      </div>
+    <div class="case-section">
+      <h3>2. Definir (Sintetização & Mapeamento)</h3>
+      <p>
+        Análise dos dados coletados para identificação das principais dores e mapeamento das necessidades dos usuários através de personas (Prof. Ricardo Albuquerque, Profa. Helena Cavalcanti, Suzana e Lucas Barbosa) e desenho da jornada do usuário.
+      </p>
     </div>
 
-    <div class="card-boxed cert-card">
-      <h3 class="card-boxed-title"><span class="title-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg></span>Certificações &amp; Especializações</h3>
-      <div class="cert-columns">
-        <div class="cert-list">
-          <div class="cert-item"><div><div class="cert-name">Product Management</div><div class="cert-org">EBAC — Escola Britânica de Artes Criativas</div></div><span class="cert-tag">Em andamento</span></div>
-          <div class="cert-item"><div><div class="cert-name">Digital Product Design</div><div class="cert-org">EBAC — Escola Britânica de Artes Criativas</div></div><span class="cert-tag">2026</span></div>
-          <div class="cert-item"><div><div class="cert-name">Design de Produtos Digitais</div><div class="cert-org">CESAR School</div></div><span class="cert-tag">2024</span></div>
-          <div class="cert-item"><div><div class="cert-name">Design Orientado por Dados</div><div class="cert-org">CESAR School</div></div><span class="cert-tag">2025</span></div>
-        </div>
-        <div class="cert-list">
-          <div class="cert-item"><div><div class="cert-name">UX Design</div><div class="cert-org">Alura</div></div><span class="cert-tag">2025</span></div>
-          <div class="cert-item"><div><div class="cert-name">Power BI Intermediário</div><div class="cert-org">Santander Open Academy</div></div><span class="cert-tag">2026</span></div>
-          <div class="cert-item"><div><div class="cert-name">Design Gráfico</div><div class="cert-org">IFPE</div></div><span class="cert-tag">2024</span></div>
-          <div class="cert-item"><div><div class="cert-name">Informática Profissional Avançado</div><div class="cert-org">ENNET</div></div><span class="cert-tag">2022</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="contato">
-  <div class="container">
-    <div class="contact-card">
-      <div class="contact-header">
-        <span style="display:inline-block;font-size:.8125rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#60A5FA;margin-bottom:.75rem">Próximo Passo</span>
-        <h2>Vamos construir algo incrível juntos?</h2>
-        <p>Estou disponível para novas posições, projetos e consultorias estratégicas em UX/UI, Growth e Design de Produto.</p>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-method">
-          <div><span class="method-label">E-mail Direto</span><div class="method-val">nailson.xavier@outlook.com</div></div>
-          <div style="display:flex;gap:.75rem;align-items:center;margin-top:1rem">
-            <a href="mailto:nailson.xavier@outlook.com" class="method-action" style="margin-top:0"><span>Escrever</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
-            <button id="copy-email-btn" style="background:none;border:0;cursor:pointer;color:#94A3B8;font-size:.8125rem;display:inline-flex;align-items:center;gap:.25rem;font-family:inherit"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg><span>Copiar</span></button>
-          </div>
-        </div>
-        <div class="contact-method">
-          <div><span class="method-label">WhatsApp</span><div class="method-val">(+55) 81 97338-5349</div></div>
-          <a href="https://wa.me/5581973385349" target="_blank" rel="noopener noreferrer" class="method-action"><span>Conversar no WhatsApp</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
-        </div>
-        <div class="contact-method">
-          <div><span class="method-label">Rede Profissional</span><div class="method-val">LinkedIn</div></div>
-          <a href="https://www.linkedin.com/in/nailsonxavier" target="_blank" rel="noopener noreferrer" class="method-action"><span>Conectar no LinkedIn</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg></a>
-        </div>
-      </div>
-      <div style="border-top:1px solid rgba(255,255,255,.12);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;position:relative;z-index:1">
-        <div style="font-size:.875rem;color:#94A3B8">Localização: <strong>Recife - PE, Brasil</strong></div>
-        <a href="mailto:nailson.xavier@outlook.com?subject=Contato%20via%20Portfolio" class="btn btn-secondary btn-sm" style="color:#fff">Iniciar Conversa por E-mail</a>
-      </div>
-    </div>
-    <footer class="site-footer">
-      <div class="footer-content">
-        <div>© 2026 Nailson Xavier • UX/UI &amp; Product Designer</div>
-        <div class="footer-links"><a href="#hero">Início</a><a href="#sobre">Sobre</a><a href="#experiencia">Experiência</a><a href="#projetos">Projetos</a><a href="#contato">Contato</a></div>
-      </div>
-    </footer>
-  </div>
-</section>
-</main>
-
-<button class="back-to-top" id="back-to-top-btn" aria-label="Voltar ao início"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg></button>
-<div class="toast" id="toast-notification" role="status" aria-live="polite"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg><span id="toast-message">E-mail copiado!</span></div>
-
-<!-- MODAL: RESUMO CV -->
-<div class="modal-overlay" id="cv-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-  <div class="modal-card">
-    <div class="modal-header">
-      <h3 id="modal-title" style="font-size:1.25rem">Nailson Xavier — Resumo Executivo</h3>
-      <button class="modal-close" id="modal-close-btn" aria-label="Fechar Modal">&times;</button>
-    </div>
-    <div style="font-size:.9375rem;line-height:1.6">
-      <p><strong>Cargo Atual:</strong> Analista Growth Marketing - Junior na UMANA Brasil</p>
-      <p><strong>Formação:</strong> Tecnólogo em Sistemas para Internet (UNICAP, 2022-2024)</p>
-      <p><strong>Especializações:</strong> Product Management (EBAC), Digital Product Design (EBAC), Design Orientado por Dados (CESAR School), UX Design (Alura).</p>
-      <p><strong>Contatos:</strong> nailson.xavier@outlook.com | (+55) 81 97338-5349</p>
-      <hr style="border:0;border-top:1px solid var(--border-subtle);margin:1.25rem 0">
-      <p>Você pode imprimir este resumo ou salvar como PDF usando o botão abaixo:</p>
-    </div>
-    <div style="margin-top:1.5rem;display:flex;gap:.75rem;justify-content:flex-end;flex-wrap:wrap">
-      <button class="btn btn-secondary" id="btn-print-cv"><span>Imprimir / Salvar PDF</span></button>
-      <button class="btn btn-primary" id="btn-modal-close-action">Fechar</button>
-    </div>
-  </div>
-</div>
-
-<!-- MODAL: ESTUDO DE CASO COMPLETO -->
-<div class="modal-overlay" id="health-case-modal" role="dialog" aria-modal="true">
-  <div class="modal-card modal-lg">
-    <div class="modal-header">
-      <h3 style="font-size:1.35rem;color:var(--text-primary)">Estudo de Caso — Saúde &amp; Bem-Estar (UX/UI)</h3>
-      <button class="modal-close" id="modal-case-close">&times;</button>
-    </div>
-    <div class="case-study-content" style="font-size:.9375rem;line-height:1.65;color:var(--text-secondary)">
-      <p><strong>Visão Geral:</strong> O aplicativo foi desenvolvido para solucionar a falta de aderência e o esquecimento recorrente em rotinas de cuidados diários com a saúde. Através da metodologia <strong>Double Diamond</strong>, mapeamos dores ligadas à ingestão de água, medicação contínua e registros de peso/humor.</p>
-      
-      <div class="case-grid">
-        <div class="case-box">
-          <strong style="color:var(--text-primary);display:block;margin-bottom:.25rem">1. Descobrir</strong>
-          <p style="font-size:.85rem;margin:0">Pesquisa qualitativa, benchmarks com concorrentes do setor e mapeamento do público-alvo.</p>
-        </div>
-        <div class="case-box">
-          <strong style="color:var(--text-primary);display:block;margin-bottom:.25rem">2. Definir</strong>
-          <p style="font-size:.85rem;margin:0">Criação de Personas (Elina, Carlos, Juliana), Jornadas do Usuário, Fluxogramas e Wireframes.</p>
-        </div>
-        <div class="case-box">
-          <strong style="color:var(--text-primary);display:block;margin-bottom:.25rem">3. Desenvolver</strong>
-          <p style="font-size:.85rem;margin:0">Identidade Visual, Guia de Estilo (Style Guide) e Tipografia baseada em Poppins.</p>
-        </div>
-        <div class="case-box">
-          <strong style="color:var(--text-primary);display:block;margin-bottom:.25rem">4. Entregar</strong>
-          <p style="font-size:.85rem;margin:0">Protótipo de alta fidelidade navegável com microinterações e código testável.</p>
-        </div>
-      </div>
-
-      <h4>Personas Mapeadas:</h4>
+    <div class="case-section">
+      <h3>3. Desenvolver (Ideação & Estruturação)</h3>
       <ul>
-        <li><strong>Elina Souza (23 anos):</strong> Deseja acompanhar a ingestão correta de água e suplementação.</li>
-        <li><strong>Carlos Mendes (45 anos):</strong> Necessita de lembretes confiáveis para medicação diária e controle de peso.</li>
-        <li><strong>Juliana Prado (31 anos):</strong> Utiliza o registro diário de humor para acompanhamento de qualidade de vida.</li>
+        <li><strong>Fluxograma & Arquitetura da Informação:</strong> Organização do fluxo de reserva e priorização de funcionalidades.</li>
+        <li><strong>Wireframes & Identidade Visual:</strong> Estruturação dos componentes de interface e definição do guia de estilo do sistema.</li>
       </ul>
-
-      <h4>Design System &amp; Tokens Visuais:</h4>
-      <p>Desenvolvido com tipografia <strong>Poppins</strong> e paleta baseada nas cores da saúde (Verde <code>#97D085</code> e Azul <code>#5B8DEF</code>), oferecendo suporte para tema claro e escuro.</p>
     </div>
-    <div style="margin-top:1.5rem;display:flex;gap:.75rem;justify-content:flex-end">
-      <button class="btn btn-secondary" id="btn-case-close-action">Fechar Leitura</button>
-      <a href="https://nailsonxavierr.github.io/projeto.saude/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-        <span>Abrir Protótipo Vivo ↗</span>
+
+    <div class="case-section">
+      <h3>4. Entregar (Protótipo & Solução)</h3>
+      <p>
+        Construção do protótipo de alta fidelidade contendo o calendário interativo de agendamento, gestão de reservas e validação das dores identificadas durante a etapa de pesquisa.
+      </p>
+    </div>
+
+    <div style="margin-top: 28px; text-align: right;">
+      <a href="https://nailsonxavierr.github.io/projeto.agendamento.laboratorio/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display: inline-flex; width: auto;">
+        Abrir Protótipo Completo ↗
       </a>
     </div>
   </div>
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded',()=>{
-  const $=id=>document.getElementById(id),header=$('header'),top=$('back-to-top-btn');
-  addEventListener('scroll',()=>{header.classList.toggle('scrolled',scrollY>40);top.classList.toggle('visible',scrollY>400)});
-  
-  const mb=$('mobile-menu-toggle'),mn=$('mobile-nav');
-  mb.addEventListener('click',()=>{const o=mn.classList.toggle('open');mb.setAttribute('aria-expanded',o);document.body.style.overflow=o?'hidden':''});
-  document.querySelectorAll('.mobile-nav-link').forEach(l=>l.addEventListener('click',()=>{mn.classList.remove('open');mb.setAttribute('aria-expanded','false');document.body.style.overflow=''}));
-  top.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
-  
-  const toast=$('toast-notification');
-  function showToast(m){$('toast-message').textContent=m;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),3200)}
-  $('copy-email-btn').addEventListener('click',async()=>{const e='nailson.xavier@outlook.com';try{await navigator.clipboard.writeText(e);showToast('E-mail copiado com sucesso!')}catch(x){showToast('E-mail: '+e)}});
-  
-  const fb=document.querySelectorAll('.filter-btn'),cards=document.querySelectorAll('.skill-card');
-  fb.forEach(b=>b.addEventListener('click',()=>{fb.forEach(x=>x.classList.remove('active'));b.classList.add('active');const f=b.dataset.filter;cards.forEach(c=>{const show=f==='all'||c.dataset.category===f;c.style.display=show?'flex':'none';if(show)c.style.animation='fadeIn .3s ease forwards'})}));
-  
-  // MODAL RESUMO CV
-  const modalCV=$('cv-modal'),omCV=()=>{modalCV.classList.add('open');document.body.style.overflow='hidden'},cmCV=()=>{modalCV.classList.remove('open');document.body.style.overflow=''};
-  $('btn-open-cv-modal').addEventListener('click',omCV);
-  $('modal-close-btn').addEventListener('click',cmCV);
-  $('btn-modal-close-action').addEventListener('click',cmCV);
-  $('btn-print-cv').addEventListener('click',()=>print());
+function openModal(id) {
+  document.getElementById(id).classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
 
-  // MODAL ESTUDO DE CASO
-  const modalCase=$('health-case-modal'),omCase=()=>{modalCase.classList.add('open');document.body.style.overflow='hidden'},cmCase=()=>{modalCase.classList.remove('open');document.body.style.overflow=''};
-  $('btn-open-health-case').addEventListener('click',omCase);
-  $('modal-case-close').addEventListener('click',cmCase);
-  $('btn-case-close-action').addEventListener('click',cmCase);
+function closeModal(id) {
+  document.getElementById(id).classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
 
-  // FECHAR MODAIS COM ESC OU CLIQUE FORA
-  [modalCV, modalCase].forEach(m=>{
-    m.addEventListener('click',e=>{if(e.target===m){m.classList.remove('open');document.body.style.overflow=''}});
-  });
-  document.addEventListener('keydown',e=>{
-    if(e.key==='Escape'){
-      [modalCV, modalCase].forEach(m=>m.classList.remove('open'));
-      document.body.style.overflow='';
-    }
-  });
-
-  const links=document.querySelectorAll('.nav-link');
-  const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){const id=en.target.id;links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+id))}}),{rootMargin:'-30% 0px -60% 0px'});
-  document.querySelectorAll('section[id]').forEach(s=>io.observe(s));
-});
+// Fechar modal ao clicar fora do conteúdo
+window.onclick = function(event) {
+  if (event.target.classList.contains('modal-overlay')) {
+    event.target.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  }
+}
 </script>
+
 </body>
 </html>
